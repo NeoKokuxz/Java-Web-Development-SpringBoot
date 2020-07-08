@@ -52,11 +52,14 @@ Application servers provide utilities and resources to the applications they hos
 - Testing
 
 # Java Servlet
-- Servlets are the interface between an application and the java application server it runs on. 
-- Each servlet in an pplication represents a configurable endpoint for client connections. 
+- Servlets are the interface between an application and the java application server it  runs on. 
+- Each servlet in an application represents a configurable endpoint for client connections. 
+- Application Servers receive HTTP requests, parse the information, and decide which Servlet should receive a request object.
 
 ## Servlet Essentials
 - must have service() method which encapsulates the servlet's client-handling logic
+ - service() method invokes on an instantiated servlet to handle:
+  - ServletRequest and ServletResponse for incoming request. 
 - may have init() and/or destory() method, which server calls after creating the servlet or before removing it, respectively. 
 - web.xml is the configuration file for application server, which maps specific request path to specific servlets. 
 

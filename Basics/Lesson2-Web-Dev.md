@@ -43,6 +43,7 @@ Application servers provide utilities and resources to the applications they hos
 - Netty
 - WildFly
 - Etc...
+- Application Servers can load servlet from WAR anytime. 
 
 ## Web apps
 - Database Access
@@ -60,7 +61,9 @@ Application servers provide utilities and resources to the applications they hos
 - must have service() method which encapsulates the servlet's client-handling logic
  - service() method invokes on an instantiated servlet to handle:
   - ServletRequest and ServletResponse for incoming request. 
+  - service() method can be called many times. 
 - may have init() and/or destory() method, which server calls after creating the servlet or before removing it, respectively. 
+ - init() method of servlet is called only once after being instantiated.
 - web.xml is the configuration file for application server, which maps specific request path to specific servlets. 
 
 ## Endpoints
@@ -71,5 +74,17 @@ A Java Archive file, which stores compiled .class files in a folder hierarchy th
 
 ## WAR
 A variation on the JAR for web applications, which optionally includes web resources like HTML files and configuration files like web.xml for servlet registration/mapping.
+
+# Inversion of Control (IoC)
+IoC: Inversion of Control, which is the practice of designing libraries as application runners. This allows developers to focus on application-specific logic and rely on IoC containers to connect application components with one another, eliminating a lot of boilerplate and encouraging a clean separation of development concerns.
+
+
+## Spring Application
+- Spring MVC, a generic web controller library for Spring that supports a wide variety of utilities to simplify the handling of HTTP requests
+- Thymeleaf, a third party template engine that can integrate with Spring MVC to simplify the generation of web pages as responses to HTTP requests
+- Spring Security, a generic authentication library for Spring that can integrate with many different credential sources and authentication protocols to automatically manage request authentication and security contexts
+- MyBatis, a third-party database access library that provides simple SQL/Java mapping tools that can be defined in Spring components
+The End of Boilerplate: Spring Boot
+
 
 

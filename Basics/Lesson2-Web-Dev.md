@@ -86,5 +86,17 @@ IoC: Inversion of Control, which is the practice of designing libraries as appli
 - MyBatis, a third-party database access library that provides simple SQL/Java mapping tools that can be defined in Spring components
 The End of Boilerplate: Spring Boot
 
+## Spring initializer 
+- Spring Dev Tools: utilities including hot reloading changed code into a running application
+- Spring MVC: web layer utilities that make developing server-side web apps easy
+- Spring Data: a common interface for many different types of database access
+- And many more Once you've selected your dependencies and chosen your language, build tool, and project identifiers, Spring Initializr will generate a zip file that includes a ready-to-run server with all of the choices you made reflected in its pom.xml file, as well as the package structure.
 
-
+# Maven
+is a dependency management system
+- Most open source Java libraries are hosted by Maven
+- Projects are configured for Maven with pom.xml file.
+ - POM - The Project Object Model
+ 
+ 
+ 

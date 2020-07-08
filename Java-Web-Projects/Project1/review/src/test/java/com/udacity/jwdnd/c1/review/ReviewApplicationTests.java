@@ -1,10 +1,10 @@
-package com.neokokuxz.JavaWebSpringboot;
+package com.udacity.jwdnd.c1.review;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class JavaWebSpringbootApplicationTests {
+class ReviewApplicationTests {
 
 	@Test
 	void contextLoads() {

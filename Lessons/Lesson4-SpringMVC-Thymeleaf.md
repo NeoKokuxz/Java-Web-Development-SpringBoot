@@ -42,3 +42,49 @@ public String getHomePage(Model model){
 - The web server receives an HTTP request and uses it to call a method in the Spring controller. The Spring controller populates a model object and returns a String with the view id. The template corresponding to the view id is populated with data from the model object.
 - The controller connects data to template
 - User data can be either encoded into request URL or sent in body of request message
+
+# Thymeleaf
+is the HTML template engine
+
+## Iteration 
+```html
+<h1  th:each="msg : ${greetings}" th:text="${msg}">Hello, homepage!</h1>
+```
+same as:
+```html
+<h1>Hi</h1>
+<h1>Hello</h1>
+```
+## Conditional rendering
+```html
+<h1  th:unless="${msg.contains('goodbye')}" th:text="${msg}">Hello, homepage!</h1>
+```
+
+## Endpoint calling
+```html
+th:action="@{'/simplehome'}" //This calls the /simplehome endpoint controller, 
+```
+
+## if
+```html
+<h1 th:if="${firstVisit}">Hello First visit</h1>
+or
+<h1 th:unless="${firstVisit}">Welcome back</h1> //if not first visit, cout welcome back
+```
+
+## Dynmaic 
+- Every form has a simple POJO that represents the type of data in the form.
+- Spring instantiates and populates this form data class when a request comes in.
+- A controller method returns a string that represents the template to render.
+```html
+//The th:object
+//The th:field auto reference back to th:object
+// action -> send to whichever page that specs
+
+<form th:object="${newMessage}" th:action="@{/home}" action="#" method="POST">
+    <input th:field="*{text}" type="text">
+    <input type="submit">
+</form>
+```
+
+

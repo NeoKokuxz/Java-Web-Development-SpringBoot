@@ -86,5 +86,42 @@ or
     <input type="submit">
 </form>
 ```
+- th:field
+- th:action
+
+# Form-Backing Object 
+Form-Backing Object: This is a term used by Spring MVC and Thymeleaf to mean an object that represents the data contained in a form. On the Spring side, this is usually an additional argument to the relevant Controller method, and on the Thymeleaf side, this is referred to in the th:object attribute on the form.
+
+# @ModelAttribute
+This allows us to specify that Spring should add the object to our Model before asking Thymeleaf to render the template. That means we don't have to add it manually!
+
+# Exercise Connecting Controller to Templates
+```html
+<body>
+<form action="#" th:action="@{'/animal'}" th:object="${messageForm}" method="POST">
+   <label for="animalText">Enter an Animal: </label>
+   <input type="text" id="animalText" name="animalText" th:field="*{animalName}">
+   <label for="adjective">Enter an Adjective:</label>
+   <input type="text" id="adjective" name="adjective" th:field="*{adjective}">
+   <input type="submit">
+</form>
+   <h1 th:unless="${#lists.size(greetings) > 5}" th:each="msg : ${greetings}" th:text="${msg}">Hello, homepage!</h1>
+   <h1 th:if="${#lists.size(greetings) > 5}">I think that's enough!</h1>
+</body>
+
+```
+
+## File upload
+```html
+<form action="#" enctype="multipart/form-data">
+```
+in Spring
+```java
+@PostMapping("/file-upload")
+public string handleFileUpload(@RequestParam("fileUpload") MutipartFile fileupload, Model model){
+  InputStream fis = fileupload.getInputStream();
+}
+```
+We need @RequestParam to link to the html form with correct data file
 
 

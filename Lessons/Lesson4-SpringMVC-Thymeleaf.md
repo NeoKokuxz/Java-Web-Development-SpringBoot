@@ -114,6 +114,8 @@ This allows us to specify that Spring should add the object to our Model before 
 ## File upload
 ```html
 <form action="#" enctype="multipart/form-data">
+    <input type="file" name="fileupload">
+</form>
 ```
 in Spring
 ```java

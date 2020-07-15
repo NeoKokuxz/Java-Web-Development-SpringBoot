@@ -46,3 +46,51 @@ public interface DeliveryMapper {
 }
 
 ```
+
+## User Credentials
+- User class
+  - Class object that holds user data
+- User Mapper
+  - Map object with the SQL queries
+- User Service
+  - User service will create a new user, it will call the hash service to convert the password to hashed value before saving it. 
+  - Salt: random data that is combined with the input string when hasing so that the resultant hased values are unique for each row. This will prevent users with same password get the same hashed value.
+- Hash Service
+  - Provide methods to convert password into hashed value.
+- AuthenticationService
+  - Rehash user input data and submit to the database to compare if there's a match.
+  - it implements the authenticationProvider class, and supports method will define which autentication method we are using.
+```java
+@Service
+public class AuthenticationService implements AuthenticationProvider {
+    private UserMapper userMapper;
+    private HashService hashService;
+
+    public AuthenticationService(UserMapper userMapper, HashService hashService) {
+        this.userMapper = userMapper;
+        this.hashService = hashService;
+    }
+
+    @Override
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        String username = authentication.getName();
+        String password = authentication.getCredentials().toString();
+
+        User user = userMapper.getUser(username);
+        if (user != null) {
+            String encodedSalt = user.getSalt();
+            String hashedPassword = hashService.getHashedValue(password, encodedSalt);
+            if (user.getPassword().equals(hashedPassword)) {
+                return new UsernamePasswordAuthenticationToken(username, password, new ArrayList<>());
+            }
+        }
+
+        return null;
+    }
+
+    @Override
+    public boolean supports(Class<?> authentication) {
+        return authentication.equals(UsernamePasswordAuthenticationToken.class);
+    }
+}
+```

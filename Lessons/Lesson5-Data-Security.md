@@ -59,7 +59,7 @@ public interface DeliveryMapper {
   - Provide methods to convert password into hashed value.
 - AuthenticationService
   - Rehash user input data and submit to the database to compare if there's a match.
-  - it implements the authenticationProvider class, and supports method will define which autentication method we are using.
+  - it implements the authenticationProvider interface, and supports method will define which autentication method we are using.
 ```java
 @Service
 public class AuthenticationService implements AuthenticationProvider {
@@ -94,3 +94,35 @@ public class AuthenticationService implements AuthenticationProvider {
     }
 }
 ```
+
+# Spring Security
+- @EnableWebSecurity
+  - This is used to let Spring know that this class is configuring sprint security.
+- If the class extends WebSecurityConfigurerAdapter
+  - This class is added to spring web security configuration
+  - configure method
+- configure method
+  - One with AuthenticationManagerBuilder add the authenticationService class to the Provider inside builder.
+  - Two tells spring which pages are protected by the spring security. 
+```java
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) {
+        auth.authenticationProvider(this.authenticationService);
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers("/signup", "/css/**", "/js/**").permitAll()
+                .anyRequest().authenticated();
+
+        http.formLogin()
+                .loginPage("/login")
+                .permitAll();
+
+        http.formLogin()
+                .defaultSuccessUrl("/home", true);
+    }
+```
+
+

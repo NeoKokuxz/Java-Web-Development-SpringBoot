@@ -134,3 +134,16 @@ public class AuthenticationService implements AuthenticationProvider {
   - Hashing
   - Salt
 
+# Glossary
+- ORM: Object-Relational Mapping. A general term describing a set of technology that can be used to automatically convert data between database representation and application representation.
+- JDBC: Java Database Connectivity API, which is a specification for making SQL requests from Java.
+- MyBatis: A thin ORM over JDBC that automatically generates code to execute SQL statements over JDBC and maps the results to Java objects.
+- Mapping: Drawing a relationship between a field in a Java class and a column in a SQL table.
+- One to One: A relationship between two objects in which one entity is on each side of the relationship.
+- Many to Many: A relationship between two objects in which multiple copies of each entity can be related to multiple copies of the other entity.
+- @Select, @Insert, @Update, @Delete: Annotations representing SQL statements to be executed. Each annotation takes a string for a SQL statement of the corresponding type. For example, a @Select annotation takes a string for a SQL SELECT statement.
+- @Options: Annotation providing access to switches and configuration options for JDBC statements.
+- Onion Pattern: Sometimes also called Tiered Architecture, Multi-tiered Architecture, or n-tiered Architecture. This is a design pattern that separates areas of the application into controller, service, and data layers (and sometimes more). User flows originate from the controller tier, which passes them to the service tier, which then reaches a data access bean.
+- Encryption: Modifying data before storing it, with the intention of using another algorithm to return the data to its original form once it needs to be used.
+- Hashing: Modifying data before storing with the intention of never returning it to its original form. The modified data will be compared to other modified data only.
+- Salt: random data that is combined with the input string when hashing so that the resultant hashed values are unique for each row. This means that two users with the same password would not have the same hash in the database.

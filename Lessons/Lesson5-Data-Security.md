@@ -124,5 +124,13 @@ public class AuthenticationService implements AuthenticationProvider {
                 .defaultSuccessUrl("/home", true);
     }
 ```
-
+## Key Terms
+- Onion Pattern
+  - Tiered Architecture, Multi-tiered Architecture or n-tiered Architecture. This is design pattern that separates areas of application into controller, service, and data layer and more. 
+  - Flow from controller tier and pass them to service tier which they will reach data access bean.
+  
+- Encryption
+  - Modifying data before storing it. 
+  - Hashing
+  - Salt
 

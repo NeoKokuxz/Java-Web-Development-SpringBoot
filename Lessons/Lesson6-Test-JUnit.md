@@ -157,3 +157,14 @@ public class CounterPage {
     }
 }
 ```
+
+# Page Factory
+Page Factory pattern to initialize web elements which are defined in Page Objects.
+```java
+public HompePage(WebDriver driver) {           
+  this.driver = driver; 
+  PageFactory.initElements(driver, this);
+}
+```
+- This is shorthand to tell Selenium to use the given driver to initialize the @FindBy-annotated fields in the class. In principle, we could do this somewhere else, but as we'll see in the next video, initializing a Page Object in its constructor like this is pretty flexible and clean.
+

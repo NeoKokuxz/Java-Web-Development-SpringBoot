@@ -118,3 +118,42 @@ In order for Selenium to assume control of a browser, it needs a program to inte
     }
 ```
 
+# Counter Page
+
+```java
+public class CounterPage {
+
+    //Web Elements
+    @FindBy(id = "count-display")
+    private WebElement countDisplay;
+
+    @FindBy(id = "increment-button")
+    private WebElement incrementButton;
+
+    @FindBy(id = "reset-value-field")
+    private WebElement resetValueField;
+
+    @FindBy(id = "reset-button")
+    private WebElement resetButton;
+
+    //Pass in driver in constructor, this reference to this page object
+    public CounterPage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+    }
+
+    //Methods that perform actions on the page
+    public int getDisplayedCount() {
+        return Integer.parseInt(countDisplay.getText());
+    }
+
+    public void incrementCount() {
+        incrementButton.click();
+    }
+
+    public void resetCount(int value) {
+        resetValueField.clear();
+        resetValueField.sendKeys(String.valueOf(value));
+        resetButton.click();
+    }
+}
+```

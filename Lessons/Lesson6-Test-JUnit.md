@@ -81,3 +81,24 @@ Written test before development
   - should be used to test user actions and process flows
   - Check app state updates throughout execution 
   - may need access to other environment
+  
+# Web Driver
+In order for Selenium to assume control of a browser, it needs a program to interface with the specific browser's API. This program is called a web driver, and there are different web drivers for each major browser.
+```java
+    public static void main(String[] args) throws InterruptedException {
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://www.google.com");
+        WebElement inputField = driver.findElement(By.name("q"));
+        inputField.sendKeys("selenium");
+        inputField.submit();
+        List<WebElement> results = driver.findElements(By.cssSelector("div.g a"));
+        for (WebElement element : results) {
+            String link = element.getAttribute("href");
+            System.out.println(link);
+        }
+        Thread.sleep(5000);
+        driver.quit();
+    }
+```
+

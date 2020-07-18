@@ -82,6 +82,22 @@ Written test before development
   - Check app state updates throughout execution 
   - may need access to other environment
   
+# JUnit API
+Assertion
+- assertNull()
+  - Expect null value when given input inside ()
+- assertThrows
+  - Throws expection when there's conditional exception
+```java
+assertThrows(ArithmeticException.class ()-> { //condition code here} );
+```
+- assertEquals
+  - First prama = expected value , 2nd prama = actual value
+```java
+assertEquals(expected: 0, example.getValue() ); //Compare the value difference
+```
+
+  
 # Web Driver
 In order for Selenium to assume control of a browser, it needs a program to interface with the specific browser's API. This program is called a web driver, and there are different web drivers for each major browser.
 ```java

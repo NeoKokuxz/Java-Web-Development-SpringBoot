@@ -235,9 +235,10 @@ Time to wait for web element loading in the page
 ```java
 //Create new WebDriver wait instance
 //Pass in existing webdriver as augment and 1000millisec wait time
-WebDriver wait = new WebDriverWait(driver, 1000);
+WebDriverWait wait = new WebDriverWait(driver, 1000);
 //wait.until the driver attempt to find the specific element by id
 //This method will block the test progress until find the valid elenment or time out. 
+//webDriver can be replaced by any driver defined
 WebElement marker = wait.until(webDriver -> webDriver.findElement(By.id("page-load-marker")));
 ```
 

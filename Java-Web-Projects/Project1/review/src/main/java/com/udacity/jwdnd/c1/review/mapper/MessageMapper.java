@@ -15,11 +15,11 @@ public interface MessageMapper {
     @Select("SELECT * FROM MESSAGES WHERE messageid = #{messageId} ")
     Message getMessageById(String messageId);
 
-    @Select("SELECT * FROM MESSAGES WHERE messageid = #{messageId} ")
+    @Select("SELECT * FROM MESSAGES ")
     List<ChatMessage> getMessages();
 
     @Insert("INSERT INTO MESSAGES(username, messagetext) VALUES (#{username}, #{messageText})")
-    @Options(useGeneratedKeys = true, keyProperty = "MessageId")
-    Integer insertMessage(ChatMessage message);
+    @Options(useGeneratedKeys = true, keyProperty = "messageId")
+    int insertMessage(ChatMessage message);
 
 }

@@ -40,9 +40,11 @@ public class MessageService{
         }
         //System.out.println("Add message: " + chatform.getMessageText());
         messageMapper.insertMessage(newMessage);
+//        System.out.println("Message added!" + newMessage.getMessage());
     }
 
     public List<ChatMessage> getChatMessage(){
+//        System.out.println("Printing now: "+ messageMapper.getMessages());
         return messageMapper.getMessages();
     }
 

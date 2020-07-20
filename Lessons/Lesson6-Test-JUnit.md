@@ -123,7 +123,7 @@ In order for Selenium to assume control of a browser, it needs a program to inte
 ```java
 public class CounterPage {
 
-    //Web Elements
+    //Web Elements using @FindBy() ***
     @FindBy(id = "count-display")
     private WebElement countDisplay;
 
@@ -167,4 +167,68 @@ public HompePage(WebDriver driver) {
 }
 ```
 - This is shorthand to tell Selenium to use the given driver to initialize the @FindBy-annotated fields in the class. In principle, we could do this somewhere else, but as we'll see in the next video, initializing a Page Object in its constructor like this is pretty flexible and clean.
+
+# @SpringBootTest
+- Server has to run before the test starts
+- Explanation below inside code with //
+```java
+
+//This tells JUnit to run the application before any tests are executed in a random port instead of 8080
+//If mutiple instance running on port 8080, might cause problems.
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+class UserTestingApplicationTests {
+
+    //This will assign the number of current port to the Integer port and for later usage
+    @LocalServerPort
+    private Integer port;
+
+    private static WebDriver driver;
+    private CounterPage counter;
+
+    @BeforeAll
+    public static void beforeAll() {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+    }
+
+    @AfterAll
+    public static void afterAll() {
+        driver.quit();
+    }
+
+    //navigate to the /chat url and 
+    @BeforeEach
+    public void beforeEach() {
+        //driver.get method will get the port that test will be on
+        driver.get("http://localhost:" + port + "/counter");
+        counter = new CounterPage(driver);
+    }
+
+    @Test
+    public void testIncrement() {
+        int prevValue = counter.getDisplayedCount();
+        counter.incrementCount();
+        assertEquals(prevValue + 1, counter.getDisplayedCount());
+    }
+
+    @Test
+    public void testIncrementTenTimes() {
+        int prevValue = counter.getDisplayedCount();
+        for (int i = 0; i < 10; i++) {
+            assertEquals(prevValue + i, counter.getDisplayedCount());
+            counter.incrementCount();
+        }
+    }
+
+    @Test
+    public void testReset() {
+        counter.resetCount(10);
+        assertEquals(10, counter.getDisplayedCount());
+        counter.resetCount(0);
+        assertEquals(0, counter.getDisplayedCount());
+    }
+
+}
+```
+
 

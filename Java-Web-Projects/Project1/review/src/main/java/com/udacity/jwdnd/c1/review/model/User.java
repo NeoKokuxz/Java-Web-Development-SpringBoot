@@ -1,14 +1,14 @@
 package com.udacity.jwdnd.c1.review.model;
 
 public class User {
-    private int userId;
+    private Integer userId;
     private String username;
     private String salt;
     private String password;
     private String firstName;
     private String lastName;
 
-    public User(int userId, String username, String salt, String password, String firstName, String lastName) {
+    public User(Integer userId, String username, String salt, String password, String firstName, String lastName) {
         this.userId = userId;
         this.username = username;
         this.salt = salt;

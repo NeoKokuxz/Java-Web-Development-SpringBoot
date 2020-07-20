@@ -13,6 +13,10 @@ public class MessageService{
 
     private MessageMapper messageMapper;
 
+    public MessageService(MessageMapper messageMapper){
+        this.messageMapper = messageMapper;
+    }
+
     @PostConstruct
     public void postConstruct(){
         System.out.println("Creating Message service bean");
@@ -35,11 +39,11 @@ public class MessageService{
                 break;
         }
         //System.out.println("Add message: " + chatform.getMessageText());
-        //messageMapper.
+        messageMapper.insertMessage(newMessage);
     }
 
     public List<ChatMessage> getChatMessage(){
-        return messageMapper.message()
+        return messageMapper.getMessages();
     }
 
 }

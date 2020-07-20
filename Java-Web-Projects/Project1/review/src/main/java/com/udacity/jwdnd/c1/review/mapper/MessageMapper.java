@@ -20,6 +20,6 @@ public interface MessageMapper {
 
     @Insert("INSERT INTO MESSAGES(username, messagetext) VALUES (#{username}, #{messageText})")
     @Options(useGeneratedKeys = true, keyProperty = "MessageId")
-    Integer insertMessage(Message message);
+    Integer insertMessage(ChatMessage message);
 
 }

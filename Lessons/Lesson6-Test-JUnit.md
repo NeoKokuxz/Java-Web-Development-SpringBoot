@@ -158,7 +158,7 @@ public class CounterPage {
 }
 ```
 
-# Page Factory
+# Selenium Page Factory
 Page Factory pattern to initialize web elements which are defined in Page Objects.
 ```java
 public HompePage(WebDriver driver) {           

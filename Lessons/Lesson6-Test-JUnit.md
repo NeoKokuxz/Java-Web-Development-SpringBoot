@@ -242,4 +242,17 @@ WebDriverWait wait = new WebDriverWait(driver, 1000);
 WebElement marker = wait.until(webDriver -> webDriver.findElement(By.id("page-load-marker")));
 ```
 
+# Glossary
+Glossary
+- Test Driven Development: a software development methodology that emphasizes writing tests before the code to be tested. This gives developers a roadmap to success - once all the tests are passing, the feature is complete!
+- User Story: User stories are short sentences derived from feature requirements in the format of As a user, I can in order to . These are used to create tests to verify the components of a feature.
+- Unit Tests: A unit test only validates the smallest unit of a computational process. That might mean a test of a single method, or a single component in an application.
+- Invariants: An invariant is a law of computation, something that shouldn't change despite changing circumstances. For example, adding 0 to a number should always result in the original number, and dividing by 0 should always result in an error.
+- Integration Tests: Integration tests are intended to validate the operation of multiple application components as they interact with each other - or integrate with one another.
+- Assertion: an assertion, in the context of JUnit, is a method we can call to check our assumptions about the behavior of the unit under test. If our assumptions are correct, the assertion silently returns and the test method continues. If they're false, the assertion throws a special exception class that JUnit uses to build the final failure report, and the test method halts execution.
+- Interactive Reporting: When we run tests in an IDE, we can usually inspect the results of each test individually. If an assertion fails or an unexpected exception is triggered, the stack trace and circumstances will be shown in the details for each test, and clickable links in the results help you navigate to problem areas in your code.
+- Interactive Debugging: When a pernicious problem persists, it can often be helpful to step through the code's execution line-by-line to inspect both the control flow and the values in memory used by the program. This is called debugging, and while it's technically possible to do outside of an IDE, IDEs like IntelliJ provide many useful tools for making the process as painless as possible.
+- Code Coverage Reports: When we run code in an IDE like IntelliJ, we can choose to have the IDE track which lines of our code were visited, and how many times. This can be wildly useful when trying to track down why a branch of a condition isn't being reached, as well as when determining how much the entire code base is covered by the currently-implemented tests.
+- Web Driver: In order for Selenium to assume control of a browser, it needs a program to interface with the specific browser's API. This program is called a web driver, and there are different web drivers for each major browser.
+- Page Object: a special POJO variant that can be defined for use with Selenium. A Page Object should have @FindBy-annotated fields that represent the key HTML elements under test, and should have helper methods that define high-level utilities and user actions on the page under test.
 

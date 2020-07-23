@@ -92,8 +92,8 @@ This annotation handles HTTP GET requests and acts as a shortcut for @RequestMap
   - Relationships
   - Operations
   - Queries & mutations
-```java
-  type Location {
+```GraphQL
+type Location {
  id: ID!
  name: String!
  address: String!

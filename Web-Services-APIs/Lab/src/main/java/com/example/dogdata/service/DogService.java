@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class DogService {
+public class DogService implements DogInterface {
 
     @Autowired
     DogRepo repo;
@@ -21,11 +22,18 @@ public class DogService {
         return repo.findAllBreed();
     }
 
-    public String retrieveBreedById(Long id){
-        return repo.findBreedById(id);
-    }
+//    public String retrieveDogBreedById(Long id) {
+//        return repo.findBreedById(id);
+//    }
 
     public List<String> retrieveDogNames(){
         return repo.findAllName();
     }
+
+    public String retrieveDogBreedById(Long id) {
+        Optional<String> optionalBreed = Optional.ofNullable(repo.findBreedById(id));
+        String breed = optionalBreed.orElseThrow(DogNotFoundException::new);
+        return breed;
+    }
+
 }

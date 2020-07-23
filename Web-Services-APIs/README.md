@@ -136,4 +136,41 @@ mutation {
   deleteLocation(id:1)
 }
 ```
+## Resolver
+- GrahphQLQueryResolver
+  - This allows spring to automatically detect and call the right method in response to one of the GraphQLQueries inside the schema
+  
+- GraphQLMutationResolver
+
+## Custom Exception
+- Java class has to extends RuntimeException
+  - Specific to GraphQL, implements GraphQLError
+
+```java
+public class LocationNotFoundException extends RuntimeException implements GraphQLError {
+
+    private Map<String, Object> extensions = new HashMap<>();
+
+    public LocationNotFoundException(String message, Long invalidLocationId) {
+        super(message);
+        extensions.put("invalidLocationId", invalidLocationId);
+    }
+
+    @Override
+    public List<SourceLocation> getLocations() {
+        return null;
+    }
+
+    @Override
+    public Map<String, Object> getExtensions() {
+        return extensions;
+    }
+
+    @Override
+    public ErrorType getErrorType() {
+        return ErrorType.DataFetchingException;
+    }
+}
+
+```
   

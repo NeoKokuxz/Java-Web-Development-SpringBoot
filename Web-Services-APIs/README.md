@@ -80,3 +80,32 @@ This annotation handles HTTP GET requests and acts as a shortcut for @RequestMap
     }
 ```
 
+# GraphQL APIs
+- Web application
+- Query language for APIs (Describes how to ask for data
+- Flexibility
+- graphql-spring-boot-starter - configure a GraphQL Servlet that you can access at /graphql
+- graphql-java-tools - A helper library to parse the GraphQL schema.
+- Schema
+  - Define data points
+  - Data type
+  - Relationships
+  - Operations
+  - Queries & mutations
+```java
+  type Location {
+ id: ID!
+ name: String!
+ address: String!
+}
+
+type Query {
+ findAllLocations: [Location]!
+}
+
+type Mutation {
+ newLocation(name: String!, address: String) : Location!
+ deleteLocation(id:ID!) : Boolean
+ updateLocationName(newName: String!, id:ID!) : Location!
+}
+```

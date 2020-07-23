@@ -33,4 +33,50 @@ More lightweight than web service
 ## SOAP 
 Simple Object Access Protocol 
 
-## RESTful APIs
+# RESTful APIs
+REST stands for REpresentational State Transfer
+-Data & Functionality are the resouces in API and identified through something called the URI
+  - URI - Uniform Resource Identifier
+  - manipulate with a fixed set of operations
+    - GET, retrieve the resources 
+    - POST, send in the resources
+    - PUT, update the resources
+    - DELETE, delete the resources
+    
+## Entity
+This marks a Java class as an entity, which means it will be persisted to the database. Typically, an entity maps to a database table and the table contains rows that represent that given entity.
+- @Entity - defined by this annotation
+```java
+@Entity
+public class Location {
+    //Id is unique identifier (primary key)
+    @Id  
+    @GeneratedValue(strategy = GenerationType.AUTO) //Type can be: AUTO/TABLE/SEQUENCE/IDENTITY
+    private Long id;
+
+    private String name;
+    private String address;
+
+    //Constructor
+    public Location(Long id, String name, String address) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+    }
+ }
+```
+
+## RestController
+This marks a class as a REST API.
+- @RestController is a convenience annotation that combines @Controller and @ResponseBody.
+
+## GetMapping
+This annotation handles HTTP GET requests and acts as a shortcut for @RequestMapping (method = RequestMethod.GET).
+```java
+    @GetMapping("/location")
+    public ResponseEntity<List<Location>> getAllLocation(){
+        List<Location> list = locationService.retrieveLocations();
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+```
+

@@ -92,6 +92,7 @@ This annotation handles HTTP GET requests and acts as a shortcut for @RequestMap
   - Relationships
   - Operations
   - Queries & mutations
+  - Note*** There can only be one root Query and one root Mutation type in a schema file. ***
 ```GraphQL
 type Location {
  id: ID!

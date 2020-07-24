@@ -174,3 +174,13 @@ public class LocationNotFoundException extends RuntimeException implements Graph
 
 ```
   
+## GraphQL Query 
+type: "query"
+Name: "{findAllDogNames}"
+Return: {name id breed origin} //Order can be any
+
+```GraphQL
+{
+    "query":"{findAllDogNames {name id breed origin} }"
+}
+```

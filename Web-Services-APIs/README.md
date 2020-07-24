@@ -184,3 +184,19 @@ Return: {name id breed origin} //Order can be any
     "query":"{findAllDogNames {name id breed origin} }"
 }
 ```
+
+## GraphiQL
+When server is up and running, type http://localhost:8080/graphiql to access the web application
+- Mutation is the root type to create, update and delete.
+```GraphQL
+mutation{
+  #newLocation method 
+  # and return data in the {} after method
+  newLocation(name: "new Location name", address: "new Address location"){
+    id
+    name
+    address
+  }
+}
+```
+

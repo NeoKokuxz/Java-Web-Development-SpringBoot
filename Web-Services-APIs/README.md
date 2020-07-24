@@ -189,6 +189,7 @@ Return: {name id breed origin} //Order can be any
 When server is up and running, type http://localhost:8080/graphiql to access the web application
 - Mutation is the root type to create, update and delete.
 ```GraphQL
+#Create
 mutation{
   #newLocation method 
   # and return data in the {} after method
@@ -199,4 +200,23 @@ mutation{
   }
 }
 ```
+```GraphQL
+#Update
+mutation{
+  #Method - Note: if id doesn't exist will cause error
+  updateLocationName(newName: "new Name here", id: 123){
+    id
+    name
+    addree
+  } #THis is the return body
+}
+```
+```GraphQL
+#Delete
+mutation{
+  #method
+  deleteLocation(id:1) #This will return true or false depends on operation successful or not
+}
+```
+
 

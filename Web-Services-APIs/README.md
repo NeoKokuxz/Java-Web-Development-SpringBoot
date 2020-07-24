@@ -188,6 +188,7 @@ Return: {name id breed origin} //Order can be any
 ## GraphiQL
 When server is up and running, type http://localhost:8080/graphiql to access the web application
 - Mutation is the root type to create, update and delete.
+### GraphiQL query:
 ```GraphQL
 #Create
 mutation{
@@ -219,4 +220,27 @@ mutation{
 }
 ```
 
+## GraphQL Query By Postman
+```GraphQL
+#Create 
+{
+  "query":"mutation {newDogBreed(id: 886, name: \"SB dog\", breed: \"Husky\") {id name breed} }"
+}
+
+#Read
+{
+  "query" : "{findDogBreeds {id name breed} }"
+}
+
+#Update
+{
+  "query":"mutation {updateDogName(newName: \"SB two\", id: 2) {id name breed} }"
+}
+
+#Delete
+{
+  "query":"mutation {deleteDogBreed(breed: \"Husky\") }"
+}
+
+```
 

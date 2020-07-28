@@ -31,7 +31,7 @@ public class EurekaApplication {
 }
 ```
 - Properties
-```java
+```Eureka
 spring.application.name=eureka-server 
 server.port=8761
 

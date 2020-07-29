@@ -59,3 +59,10 @@ Code above expose the repo resources at http://localhost:8080/items/
 > Next, Spring Data Rest appends an S to the entity name in the endpoint
 > Lastly, Spring Data Rest exposes CRUD (Create, Read, Update, and Delete) operations as RESTful APIs over HTTP
 
+```java
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-data-rest</artifactId>
+</dependency>
+```
+

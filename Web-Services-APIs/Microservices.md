@@ -42,6 +42,20 @@ logging.level.com.netflix.eureka=ON
 logging.level.com.netflix.discovery=ON
 ```
 
+## Eureka Client 
+Register with Eureka server and to be discovered
+- @EnableEurekaClient
+- Add config to properties
+```
+#Eureka
+spring.application.name=item-service
+server.port=8762
+eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+eureka.client.service-url.default-zone=http://localhost:8761/eureka/
+instance.preferIpAddress=true
+```
+- Done
+
 ## Spring Data Rest
 https://spring.io/projects/spring-data-rest
 - Locates All Spring Data Repository

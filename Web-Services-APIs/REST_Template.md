@@ -1,0 +1,1 @@
+# REST Template for APIs

@@ -21,7 +21,7 @@ public class ChatController {
     }
 
     @GetMapping
-    public String getChatPAge(ChatForm cf, Model model){
+    public String getChatPage(ChatForm cf, Model model){
         //Register the attribute to get chat history
         model.addAttribute("chatMessages", this.ms.getChatMessage() );
         //return chat.html when access Get /chat

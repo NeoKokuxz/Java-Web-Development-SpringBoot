@@ -22,11 +22,11 @@ public class SignupService {
     public boolean checkUsername(String name){
         return userMapper.getUser(name) == null;
     }
+
     //Create user
     public int createUser(User user){
-        //Get a random
+        //Get a random and mix with salt to encode password
         SecureRandom random = new SecureRandom();
-
         byte[] salt = new byte[16];
         random.nextBytes(salt);
         String encodedSalt = Base64.getEncoder().encodeToString(salt);

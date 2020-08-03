@@ -25,6 +25,7 @@ public class SignupService {
 
     //Create user
     public int createUser(User user){
+
         //Get a random and mix with salt to encode password
         SecureRandom random = new SecureRandom();
         byte[] salt = new byte[16];

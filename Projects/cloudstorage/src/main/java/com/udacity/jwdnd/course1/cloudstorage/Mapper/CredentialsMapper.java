@@ -4,11 +4,16 @@ import com.udacity.jwdnd.course1.cloudstorage.model.Credential;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Mapper
 public interface CredentialsMapper {
 
     @Select("SELECT COUNT(*) FROM CREDENTIALS")
     int getCredentialCount();
+
+    @Select("SELECT * FROM CREDENTIALS")
+    List<Credential> getCredentialList();
 
     @Select("SELECT * FROM CREDENTIALS WHERE username = #{username}")
     Credential getCredential(String username);
@@ -18,8 +23,8 @@ public interface CredentialsMapper {
     @Options(useGeneratedKeys = true, keyProperty = "credentialId")
     int insertCredential(Credential credential);
 
-    @Delete("DELETE FROM CREDENTIALS WHERE username = #{username}")
-    void deleteCredentials(String username);
+    @Delete("DELETE FROM CREDENTIALS WHERE credentialid = #{credentialId}")
+    void deleteCredentials(Integer credentialId);
 
 }
 

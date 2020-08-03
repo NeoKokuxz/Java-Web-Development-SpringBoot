@@ -1,7 +1,5 @@
 package com.udacity.jwdnd.course1.cloudstorage.controller;
 
-
-import com.udacity.jwdnd.course1.cloudstorage.Mapper.CredentialsMapper;
 import com.udacity.jwdnd.course1.cloudstorage.Mapper.UserMapper;
 import com.udacity.jwdnd.course1.cloudstorage.model.Credential;
 import com.udacity.jwdnd.course1.cloudstorage.services.CredentialService;
@@ -16,12 +14,12 @@ public class HomeController {
 
     private CredentialService credentialService;
     private UserMapper userMapper;
-    private CredentialsMapper credentialsMapper;
 
-    public HomeController(CredentialService credentialService, UserMapper userMapper, CredentialsMapper credentialsMapper){
+
+    public HomeController(CredentialService credentialService, UserMapper userMapper){
         this.credentialService = credentialService;
         this.userMapper = userMapper;
-        this.credentialsMapper = credentialsMapper;
+        //this.credentialsMapper = credentialsMapper;
     }
 
     //Return Home Page View
@@ -37,8 +35,18 @@ public class HomeController {
     public String postCredential(Authentication a, Credential credential, Model model){
         credential.setUserId(userMapper.getUser(a.getName()).getUserId());
         credentialService.insertCredential(credential);
+        //
+        model.addAttribute("cs", credentialService.getCredentialList());
+        System.out.println();
         return "home";
     }
+
+//    @GetMapping("/credential/delete/{credentialId}")
+//    public String deleteCredential(@PathVariable Integer credentialId){
+//        System.out.println("Mapping test");
+//        credentialService.deleteCredential(credentialId);
+//        return "home";
+//    }
 
 //    @DeleteMapping
 //    public String DeleteCredential(Credential credential, Model model){

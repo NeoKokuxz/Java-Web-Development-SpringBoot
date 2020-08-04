@@ -27,13 +27,11 @@ public class CredentialController {
         credentialService.insertCredential(credential);
         //
         model.addAttribute("cs", credentialService.getCredentialList());
-        System.out.println();
-        return "result";
+        return "home";
     }
 
     @GetMapping("/credential/delete/{credentialId}")
     public String deleteCredential(@PathVariable Integer credentialId){
-        System.out.println("Mapping test");
         credentialService.deleteCredential(credentialId);
         return "result";
     }

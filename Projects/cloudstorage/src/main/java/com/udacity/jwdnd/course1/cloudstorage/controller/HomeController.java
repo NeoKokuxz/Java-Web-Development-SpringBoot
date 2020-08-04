@@ -27,19 +27,7 @@ public class HomeController {
     public String getHomeView(){
         return "home";
     }
-
-    /*
-        Credential
-     */
-    @PostMapping
-    public String postCredential(Authentication a, Credential credential, Model model){
-        credential.setUserId(userMapper.getUser(a.getName()).getUserId());
-        credentialService.insertCredential(credential);
-        //
-        model.addAttribute("cs", credentialService.getCredentialList());
-        System.out.println();
-        return "home";
-    }
+}
 
 //    @GetMapping("/credential/delete/{credentialId}")
 //    public String deleteCredential(@PathVariable Integer credentialId){
@@ -56,4 +44,4 @@ public class HomeController {
 
 //    @PutMapping
 //    public String
-}
+

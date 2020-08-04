@@ -21,13 +21,23 @@ public class CredentialController {
         this.credentialService = credentialService;
     }
 
-    @PostMapping("/credential/create")
+    @PostMapping(value = "/credential/create")
     public String postCredential(Authentication a, Credential credential, Model model){
-        credential.setUserId(userMapper.getUser(a.getName()).getUserId());
-        credentialService.insertCredential(credential);
-        //
-        model.addAttribute("cs", credentialService.getCredentialList());
-        return "home";
+        String errorMessage = null;
+        int rowsAffected;
+//        if(credential.getCredentialId() != null){
+//            rowsAffected = credentialService.updateCredential(credential);
+//        } else {
+            credential.setUserId(userMapper.getUser(a.getName()).getUserId());
+            rowsAffected = credentialService.insertCredential(credential);
+//        }
+//
+//        if(rowsAffected <= 0){
+//            errorMessage = "An unexpected error occurred! Try again later";
+//            model.addAttribute("errorMessage", errorMessage);
+//            return "result";
+//        }
+        return "result";
     }
 
     @GetMapping("/credential/delete/{credentialId}")

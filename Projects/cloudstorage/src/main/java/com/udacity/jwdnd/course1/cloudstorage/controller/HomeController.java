@@ -8,23 +8,25 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/home")
 public class HomeController {
 
     private CredentialService credentialService;
-    private UserMapper userMapper;
 
-
-    public HomeController(CredentialService credentialService, UserMapper userMapper){
+    public HomeController(CredentialService credentialService){
         this.credentialService = credentialService;
-        this.userMapper = userMapper;
         //this.credentialsMapper = credentialsMapper;
     }
 
     //Return Home Page View
-    @GetMapping
-    public String getHomeView(){
+    @GetMapping()
+    public String getHomeView(Authentication a, Model model){
+        //Get data when refresh or get this home view
+        List<Credential> credentialList = credentialService.getCredentialList(a.getName());
+        model.addAttribute("cs", credentialList);
         return "home";
     }
 }

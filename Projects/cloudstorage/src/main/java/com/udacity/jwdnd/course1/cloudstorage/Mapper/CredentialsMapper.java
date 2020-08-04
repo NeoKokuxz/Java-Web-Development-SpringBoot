@@ -9,23 +9,31 @@ import java.util.List;
 @Mapper
 public interface CredentialsMapper {
 
+    //Get all credential count
     @Select("SELECT COUNT(*) FROM CREDENTIALS")
     int getCredentialCount();
 
-    @Select("SELECT * FROM CREDENTIALS")
-    List<Credential> getCredentialList();
+    //Get credential
+    @Select("SELECT * FROM CREDENTIALS WHERE userid = #{userId}")
+    List<Credential> getCredentialList(Integer userId);
 
-    @Select("SELECT * FROM CREDENTIALS WHERE username = #{username}")
-    Credential getCredential(String username);
+    //Get single credential
+    @Select("SELECT * FROM CREDENTIALS WHERE credentialid = #{credentialId}")
+    Credential selectCredential(Integer credentialId);
 
+    //Insert into credentials
     @Insert("INSERT INTO CREDENTIALS( url, username, key, password, userid)" +
             "VALUES(#{url}, #{username}, #{key}, #{password}, #{userId})")
     @Options(useGeneratedKeys = true, keyProperty = "credentialId")
-    int insertCredential(Credential credential);
+    Integer insertCredential(Credential credential);
 
+    //Delete from credentials
     @Delete("DELETE FROM CREDENTIALS WHERE credentialid = #{credentialId}")
     void deleteCredentials(Integer credentialId);
 
+    //Update credential in credentials
+    @Update("UPDATE TABLE CREDENTIALS SET url=#{url}, username=#{username}, password=#{password} WHERE credentialid = #{credentialId}")
+    Integer updateCredential(Credential credential);
 }
 
 /*

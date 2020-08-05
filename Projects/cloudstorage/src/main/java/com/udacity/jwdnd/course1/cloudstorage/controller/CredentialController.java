@@ -24,19 +24,20 @@ public class CredentialController {
     @PostMapping(value = "/credential/create")
     public String postCredential(Authentication a, Credential credential, Model model){
         String errorMessage = null;
-        int rowsAffected;
-//        if(credential.getCredentialId() != null){
-//            rowsAffected = credentialService.updateCredential(credential);
-//        } else {
+        int rowAffected; //Check if it's a update not create
+        if(credential.getCredentialId() == null){
+            //Credential Id = null = not exist in the database
             credential.setUserId(userMapper.getUser(a.getName()).getUserId());
-            rowsAffected = credentialService.insertCredential(credential);
-//        }
-//
-//        if(rowsAffected <= 0){
-//            errorMessage = "An unexpected error occurred! Try again later";
-//            model.addAttribute("errorMessage", errorMessage);
-//            return "result";
-//        }
+            rowAffected = credentialService.insertCredential(credential);
+        } else {
+            //Update the credential
+            rowAffected = credentialService.updateCredential(credential);
+        }
+        if(rowAffected <= 0){
+            errorMessage = "Error occurred during request. Please try again later";
+            model.addAttribute("errorMessage", errorMessage);
+            return "result";
+        }
         return "result";
     }
 

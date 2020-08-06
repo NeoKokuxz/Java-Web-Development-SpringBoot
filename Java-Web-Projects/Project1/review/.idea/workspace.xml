@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cae34495-b2aa-4cf2-9d85-765bf80523bf" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/udacity/jwdnd/c1/review/ReviewApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/udacity/jwdnd/c1/review/config/SecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/udacity/jwdnd/c1/review/controller/ChatController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/udacity/jwdnd/c1/review/controller/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/udacity/jwdnd/c1/review/controller/SignupController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/udacity/jwdnd/c1/review/mapper/MessageMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/udacity/jwdnd/c1/review/mapper/UserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/udacity/jwdnd/c1/review/model/ChatForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/udacity/jwdnd/c1/review/model/ChatMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/udacity/jwdnd/c1/review/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/udacity/jwdnd/c1/review/service/AuthenticationService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/udacity/jwdnd/c1/review/service/HashService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/udacity/jwdnd/c1/review/service/MessageService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/udacity/jwdnd/c1/review/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/schema.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/jquery-slim.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/chat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/signup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/udacity/jwdnd/c1/review/ChatPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/udacity/jwdnd/c1/review/LoginPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/udacity/jwdnd/c1/review/ReviewApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/udacity/jwdnd/c1/review/SignupPage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Projects/cloudstorage/src/main/java/com/udacity/jwdnd/course1/cloudstorage/Mapper/FilesMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Projects/cloudstorage/src/main/java/com/udacity/jwdnd/course1/cloudstorage/Mapper/FilesMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Projects/cloudstorage/src/main/java/com/udacity/jwdnd/course1/cloudstorage/controller/CredentialController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Projects/cloudstorage/src/main/java/com/udacity/jwdnd/course1/cloudstorage/controller/CredentialController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Projects/cloudstorage/src/main/java/com/udacity/jwdnd/course1/cloudstorage/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Projects/cloudstorage/src/main/java/com/udacity/jwdnd/course1/cloudstorage/controller/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Projects/cloudstorage/src/main/java/com/udacity/jwdnd/course1/cloudstorage/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Projects/cloudstorage/src/main/java/com/udacity/jwdnd/course1/cloudstorage/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Projects/cloudstorage/src/main/java/com/udacity/jwdnd/course1/cloudstorage/controller/NoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Projects/cloudstorage/src/main/java/com/udacity/jwdnd/course1/cloudstorage/controller/NoteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Projects/cloudstorage/src/main/java/com/udacity/jwdnd/course1/cloudstorage/model/File.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Projects/cloudstorage/src/main/java/com/udacity/jwdnd/course1/cloudstorage/model/File.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Projects/cloudstorage/src/main/java/com/udacity/jwdnd/course1/cloudstorage/services/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Projects/cloudstorage/src/main/java/com/udacity/jwdnd/course1/cloudstorage/services/FileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Projects/cloudstorage/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Projects/cloudstorage/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Projects/cloudstorage/src/main/resources/templates/result.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Projects/cloudstorage/src/main/resources/templates/result.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Projects/cloudstorage/src/main/resources/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Projects/cloudstorage/src/main/resources/templates/signup.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Users\Naoki\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1eQ2BVmyS7V6VZWbzVzq4RJUAJQ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="h2" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="ignore.preview.features.used" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RunManager" selected="Application.ReviewApplication">
+    <configuration name="ReviewApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.udacity.jwdnd.c1.review.ReviewApplication" />
+      <module name="review" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.udacity.jwdnd.c1.review.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReviewApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="review" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.udacity.jwdnd.c1.review.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.udacity.jwdnd.c1.review" />
+      <option name="MAIN_CLASS_NAME" value="com.udacity.jwdnd.c1.review.ReviewApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReviewApplicationTests.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="review" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.udacity.jwdnd.c1.review.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.udacity.jwdnd.c1.review" />
+      <option name="MAIN_CLASS_NAME" value="com.udacity.jwdnd.c1.review.ReviewApplicationTests" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReviewApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="review" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.udacity.jwdnd.c1.review.ReviewApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ReviewApplication" />
+        <item itemvalue="JUnit.ReviewApplicationTests" />
+        <item itemvalue="JUnit.ReviewApplicationTests.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cae34495-b2aa-4cf2-9d85-765bf80523bf" name="Default Changelist" comment="" />
+      <created>1594239360802</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1594239360802</updated>
+      <workItem from="1594239366072" duration="7969000" />
+      <workItem from="1594330944118" duration="4310000" />
+      <workItem from="1594495559561" duration="4295000" />
+      <workItem from="1594499968888" duration="2315000" />
+      <workItem from="1594763150790" duration="29000" />
+      <workItem from="1594924400273" duration="1360000" />
+      <workItem from="1594925770654" duration="219000" />
+      <workItem from="1594925998816" duration="6666000" />
+      <workItem from="1595014862099" duration="1665000" />
+      <workItem from="1595212605361" duration="4948000" />
+      <workItem from="1595275020478" duration="6056000" />
+      <workItem from="1595398568803" duration="841000" />
+      <workItem from="1596299984775" duration="8160000" />
+      <workItem from="1596311179762" duration="3050000" />
+      <workItem from="1596322357758" duration="32000" />
+      <workItem from="1596322448342" duration="3808000" />
+      <workItem from="1596395304680" duration="14844000" />
+      <workItem from="1596471153790" duration="17591000" />
+      <workItem from="1596751343842" duration="40000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2176" y="402" key="#Inspections" timestamp="1595213733647">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="2176" y="402" key="#Inspections/0.0.3440.1400@0.0.3440.1400" timestamp="1595213733647" />
+    <state x="2093" y="346" key="#Project_Structure" timestamp="1594239443013">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="2093" y="346" key="#Project_Structure/0.0.3440.1400@0.0.3440.1400" timestamp="1594239443013" />
+    <state x="2265" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594943141480">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="2265" y="354" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1594943141480" />
+    <state x="2478" y="380" key="#com.intellij.ide.util.MemberChooser" timestamp="1594928068686">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="2478" y="380" key="#com.intellij.ide.util.MemberChooser/0.0.3440.1400@0.0.3440.1400" timestamp="1594928068686" />
+    <state x="2329" y="592" width="444" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1595213740300">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="2329" y="592" width="444" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.3440.1400@0.0.3440.1400" timestamp="1595213740300" />
+    <state width="1674" height="316" key="GridCell.Tab.0.bottom" timestamp="1596513381425">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="316" key="GridCell.Tab.0.bottom/0.0.3440.1400/3440.0.1080.1880@0.0.3440.1400" timestamp="1596513381425" />
+    <state width="1590" height="708" key="GridCell.Tab.0.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1595311115565" />
+    <state width="1674" height="316" key="GridCell.Tab.0.center" timestamp="1596513381425">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="316" key="GridCell.Tab.0.center/0.0.3440.1400/3440.0.1080.1880@0.0.3440.1400" timestamp="1596513381425" />
+    <state width="1590" height="708" key="GridCell.Tab.0.center/0.0.3440.1400@0.0.3440.1400" timestamp="1595311115565" />
+    <state width="1674" height="316" key="GridCell.Tab.0.left" timestamp="1596513381425">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="316" key="GridCell.Tab.0.left/0.0.3440.1400/3440.0.1080.1880@0.0.3440.1400" timestamp="1596513381425" />
+    <state width="1590" height="708" key="GridCell.Tab.0.left/0.0.3440.1400@0.0.3440.1400" timestamp="1595311115565" />
+    <state width="1674" height="316" key="GridCell.Tab.0.right" timestamp="1596513381425">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1674" height="316" key="GridCell.Tab.0.right/0.0.3440.1400/3440.0.1080.1880@0.0.3440.1400" timestamp="1596513381425" />
+    <state width="1590" height="708" key="GridCell.Tab.0.right/0.0.3440.1400@0.0.3440.1400" timestamp="1595311115565" />
+    <state width="1452" height="271" key="GridCell.Tab.1.bottom" timestamp="1595226436034">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1452" height="271" key="GridCell.Tab.1.bottom/0.0.3440.1400@0.0.3440.1400" timestamp="1595226436034" />
+    <state width="1452" height="271" key="GridCell.Tab.1.center" timestamp="1595226436034">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1452" height="271" key="GridCell.Tab.1.center/0.0.3440.1400@0.0.3440.1400" timestamp="1595226436034" />
+    <state width="1452" height="271" key="GridCell.Tab.1.left" timestamp="1595226436034">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1452" height="271" key="GridCell.Tab.1.left/0.0.3440.1400@0.0.3440.1400" timestamp="1595226436034" />
+    <state width="1452" height="271" key="GridCell.Tab.1.right" timestamp="1595226436034">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1452" height="271" key="GridCell.Tab.1.right/0.0.3440.1400@0.0.3440.1400" timestamp="1595226436034" />
+    <state x="1981" y="262" key="SettingsEditor" timestamp="1594926231779">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="1981" y="262" key="SettingsEditor/0.0.3440.1400@0.0.3440.1400" timestamp="1594926231779" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1594926239929">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.3440.1400@0.0.3440.1400" timestamp="1594926239929" />
+    <state x="2198" y="512" key="com.intellij.ide.util.TipDialog" timestamp="1595014861933">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="2198" y="512" key="com.intellij.ide.util.TipDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1595014861933" />
+    <state x="2302" y="533" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1595213883261">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="2302" y="533" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.3440.1400@0.0.3440.1400" timestamp="1595213883261" />
+  </component>
+</project>

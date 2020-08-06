@@ -38,12 +38,16 @@ public class CredentialController {
             model.addAttribute("errorMessage", errorMessage);
             return "result";
         }
+        String successMessage = "Success uploaded credential! ";
+        model.addAttribute("successMessage", successMessage);
         return "result";
     }
 
     @GetMapping("/credential/delete/{credentialId}")
-    public String deleteCredential(@PathVariable Integer credentialId){
+    public String deleteCredential(@PathVariable Integer credentialId, Model model){
+        String successMessage = "Success deleted credential";
         credentialService.deleteCredential(credentialId);
+        model.addAttribute("successMessage", successMessage);
         return "result";
     }
 

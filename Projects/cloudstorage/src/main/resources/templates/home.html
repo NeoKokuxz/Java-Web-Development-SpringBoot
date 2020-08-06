@@ -21,9 +21,11 @@
     </head>
     <body class="p-3 mb-2 bg-light text-black">
         <div class="container">
-            <div id="logoutDiv">
+            <div id="logoutDiv" class="float-right">
                 <form th:action="@{/logout}" action="#" method="POST">
-                    <button type="submit" class="btn btn-secondary float-right">Logout</button>
+                    <span>Welcome: </span>
+                    <span th:text="${name}"></span>
+                    <button type="submit" class="btn btn-secondary">Logout</button>
                 </form>
             </div>
             <div id="contentDiv" style="clear: right;">
@@ -35,15 +37,15 @@
                     </div>
                 </nav>
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade in active" id="nav-files" role="tabpanel" aria-labelledby="nav-files-tab">
-                        <form th:object="${fileForm}" action="#" enctype="multipart/form-data" method="POST">
+                    <div class="tab-pane fade show active" id="nav-files" role="tabpanel" aria-labelledby="nav-files-tab">
+                        <form th:action="@{/file/upload}" action="#" enctype="multipart/form-data" method="POST">
                             <div class="container">
                                 <div class="row" style="margin: 1em;">
                                     <div class="col-sm-2">
                                         <label for="fileUpload">Upload a New File:</label>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="file" class="form-control-file" id="fileUpload" name="fileUpload">
+                                        <input type="file" class="form-control-file" id="fileUpload" name="multipartFile">
                                     </div>
                                     <div class="col-sm-4">
                                         <button type="submit" class="btn btn-dark">Upload</button>
@@ -55,18 +57,18 @@
                             <table class="table table-striped" id="fileTable">
                                 <thead>
                                     <tr>
-                                        <th style="width: 20%" scope="col">File Name</th>
-                                        <th style="width: 80%" scope="col">Actions</th>
+                                        <th style="width: 40%" scope="col">File Name</th>
+                                        <th style="width: 60%" scope="col">Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody th:each="f : ${fs}" >
                                 <tr>
 
-                                    <th scope="row">ExampleFile.txt</th>
+                                    <th th:text="${f.fileName}" scope="row">ExampleFile.txt</th>
 
                                     <td>
-                                        <a target="_blank" class="btn btn-success">View</a>
-                                        <a  class="btn btn-danger">Delete</a>
+                                        <a th:href="${f.url}" th:download="${f.fileName}" target="_blank" class="btn btn-success">Download</a>
+                                        <a th:href="@{'/file/delete/' + ${f.fileId}}" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -153,7 +155,7 @@
                                     <td th:text="${c.username}">Example Credential Username</td>
                                     <td th:text="${c.password}">Example Credential Password</td>
                                     <td>
-                                        <button type="button" class="btn btn-success" th:onclick="javascript:show([[${c}]])">Edit</button>
+                                        <button type="button" class="btn btn-success" th:onclick="javascript:showCredentialModal([[${c}]])">Edit</button>
                                         <a id="delete-btn" class="btn btn-danger" th:href="@{'/credential/delete/' + ${c.credentialId}}" >Delete</a>
                                     </td>
                                 </tr>

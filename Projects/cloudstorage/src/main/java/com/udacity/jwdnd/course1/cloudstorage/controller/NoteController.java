@@ -36,12 +36,16 @@ public class NoteController {
             model.addAttribute("errorMessage", errorMessage);
             return "result";
         }
+        String successMessage = "Success uploaded note! ";
+        model.addAttribute("successMessage", successMessage);
         return "result";
     }
 
     @GetMapping("/note/delete/{noteId}")
-    public String deleteNote(@PathVariable Integer noteId){
+    public String deleteNote(@PathVariable Integer noteId, Model model){
+        String successMessage = "Success deleted note";
         noteService.deleteNote(noteId);
+        model.addAttribute("successMessage", successMessage);
         return "result";
     }
 

@@ -12,17 +12,17 @@
         <div class="container justify-content-center w-50 p-3" style="margin-top: 5em;">
             <div th:unless="${errorMessage}" class="alert alert-success fill-parent">
                 <h1 class="display-5">Success</h1>
-                <span th:text="${successMessage}">Your changes were successfully saved. </span> <br>
-                <span>Click <a th:href="@{/home}">here</a> to continue.</span>
+                <span  th:text="${successMessage}">Your changes were successfully saved. </span> <br>
+                <span>Click <a id="sc-btn" th:href="@{/home}">here</a> to continue.</span>
             </div>
             <div th:if="${errorMessage}"class="alert alert-danger fill-parent">
                 <h1 class="display-5">Error</h1>
-                <span th:text="${errorMessage}">Your changes were not saved. Click <a th:href="@{/home}"></a> to continue.</span>
+                <span th:text="${errorMessage}">Your changes were not saved. Click <a id="ec1-btn" th:href="@{/home}"></a> to continue.</span>
             </div>
             <div th:if="${errorMessage}"class="alert alert-danger fill-parent">
                 <h1 class="display-5">Error</h1>
                 <span th:text="${errorMessage}">Example Error Message</span>
-                <span>Click <a th:href="@{/home}">here</a> to continue.</span>
+                <span>Click <a id="ec2-btn" th:href="@{/home}">here</a> to continue.</span>
             </div>
         </div>
     </body>

@@ -58,8 +58,8 @@ class CloudStorageApplicationTests {
 	public void testSignUpPage() throws InterruptedException {
 		driver.get("http://localhost:" + this.port + "/signup");
 		signUpPage = new SignUpPage(driver);
-		Thread.sleep(5000);
-		signUpPage.preSignup();
+		Thread.sleep(1000);
+		signup();
 	}
 
 	@Test //Pass
@@ -82,10 +82,11 @@ class CloudStorageApplicationTests {
 		Assertions.assertEquals("Login", driver.getTitle());
 	}
 
-	@Test
+	@Test //Pass
 	public void testNoteFunctionality() throws InterruptedException{
 		signup();
 		login();
+
 		//Add Note - Home
 		driver.get("http://localhost:" + this.port + "/home");
 		homePage = new HomePage(driver);
@@ -96,15 +97,10 @@ class CloudStorageApplicationTests {
 		Thread.sleep(1000);
 		homePage.addNote();
 		Thread.sleep(1000);
-		//Result Page
-		driver.get("http://localhost:" + this.port + "/result");
-		resultPage = new ResultPage(driver);
-		resultPage.scClick();
-		Thread.sleep(2000); //Pass
 
-		//Back to Note tab in home
-		driver.get("http://localhost:" + this.port + "/home");
-		homePage = new HomePage(driver);
+		//Continue to home - Result
+		WebElement next = driver.findElement(By.id("sc-btn"));
+		next.click();
 		Thread.sleep(1000); //Pass
 
 		//Check Assertion for note title
@@ -116,22 +112,16 @@ class CloudStorageApplicationTests {
 		Assertions.assertEquals("Learn Spring MVC", desc.getText());
 		Thread.sleep(500); //Pass
 
-		//Edit
+		//Edit Note - Home
 		homePage.editNoteBtn();
 		Thread.sleep(1000);
 		homePage.editNote();
-		Thread.sleep(1000);
-		driver.get("http://localhost:" + this.port + "/result");
-		resultPage = new ResultPage(driver);
-		resultPage.scClick();
+		Thread.sleep(1000); //Pass
+		next = driver.findElement(By.id("sc-btn"));
+		next.click();
 		Thread.sleep(1000); //Pass
 
-		//Back to Note tab in home
-		driver.get("http://localhost:" + this.port + "/home");
-		homePage = new HomePage(driver);
-		Thread.sleep(1000); //Pass
-
-		//Check Assertion for note title
+		//Check Assertion for edited note
 		title = driver.findElement(By.id("t-noteTitle"));
 		Assertions.assertEquals("New Title", title.getText());
 		Thread.sleep(500);
@@ -140,19 +130,77 @@ class CloudStorageApplicationTests {
 		Assertions.assertEquals("New Desc", desc.getText());
 		Thread.sleep(500); //Pass
 
-		//Delete
+		//Delete Note - Home
 		homePage.deleteNote();
-		Thread.sleep(5000); //Pass
+		Thread.sleep(1000); //Pass
+
+		//Continue to home - Result
+		next = driver.findElement(By.id("sc-btn"));
+		next.click();
+		Thread.sleep(2000); //Pass
 
 	}
 
-	@Test
+	@Test //Pass
 	public void testCredentialFunctionality() throws InterruptedException{
 		signup();
 		login();
+
+		//Add Credential - Home
 		driver.get("http://localhost:" + this.port + "/home");
 		homePage = new HomePage(driver);
+		Thread.sleep(1000);
+		homePage.clickCredentialTab();
+		Thread.sleep(1000);
+		homePage.showCredentialModal();
+		Thread.sleep(1000);
 		homePage.addCredential();
+		Thread.sleep(1000); //Pass
+
+		//Continue to home - Result
+		WebElement next = driver.findElement(By.id("sc-btn"));
+		next.click();
+		Thread.sleep(1000); //Pass
+
+		//Check Assertion for credential URL, Username, Password
+		WebElement url = driver.findElement(By.id("c-url-display"));
+		Assertions.assertEquals("Github", url.getText());
+		Thread.sleep(500);
+		WebElement username = driver.findElement(By.id("c-username-display"));
+		Assertions.assertEquals("Naoki", username.getText());
+		Thread.sleep(500);
+		WebElement password = driver.findElement(By.id("c-password-display"));
+		Assertions.assertEquals("Naoki123123123", password.getText());
+		Thread.sleep(500); //Pass
+
+		//Edit Note - Home
+		homePage.editCredentialBtn();
+		Thread.sleep(1000);
+		homePage.editCredential();
+		Thread.sleep(1000);
+		next = driver.findElement(By.id("sc-btn"));
+		next.click();
+		Thread.sleep(1000); //Pass
+
+		//Check Assertion for edited credential URL, Username, Password
+		url = driver.findElement(By.id("c-url-display"));
+		Assertions.assertEquals("New URL", url.getText());
+		Thread.sleep(500);
+		username = driver.findElement(By.id("c-username-display"));
+		Assertions.assertEquals("New Username", username.getText());
+		Thread.sleep(500);
+		password = driver.findElement(By.id("c-password-display"));
+		Assertions.assertEquals("New Password", password.getText());
+		Thread.sleep(500); //Pass
+
+		//Delete Credential - Home
+		homePage.deleteCredentialBtn();
+		Thread.sleep(1000); //Pass
+
+		//Continue to home - Result
+		next = driver.findElement(By.id("sc-btn"));
+		next.click();
+		Thread.sleep(2000); //Pass
 	}
 
 	private void signup() throws InterruptedException{

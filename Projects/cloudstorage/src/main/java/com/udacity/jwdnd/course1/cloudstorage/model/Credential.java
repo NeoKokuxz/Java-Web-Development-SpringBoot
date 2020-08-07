@@ -7,6 +7,7 @@ public class Credential {
     private String key;
     private String password;
     private int userId;
+    //private String decryptedPassword;
 
     public Credential(){
 
@@ -68,6 +69,10 @@ public class Credential {
     public void setUserId(int userId) {
         this.userId = userId;
     }
+
+//    public void setDecryptedPassword(String decryptedPassword) {
+//        this.decryptedPassword = decryptedPassword;
+//    }
 }
 
 /*

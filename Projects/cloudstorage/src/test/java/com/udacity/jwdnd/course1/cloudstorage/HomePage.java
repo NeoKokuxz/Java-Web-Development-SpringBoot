@@ -69,8 +69,8 @@ public class HomePage {
     @FindBy(id = "deleteCredential-btn")
     private WebElement deleteCredentialBtn;
 
-    @FindBy(id = "credentialSubmit")
-    private WebElement submitCredentialBtn;
+    @FindBy(id = "saveCredential-btn")
+    private WebElement saveCredentialBtn;
 
     //Credential Modal
     @FindBy(id = "credential-url")
@@ -119,27 +119,6 @@ public class HomePage {
         deleteNoteBtn.click();
     }
 
-    // - Credential
-    public void addCredential(){
-        addCredentialBtn.click();
-        credentialURL.sendKeys("Github");
-        credentialUsername.sendKeys("Naoki");
-        credentialPassword.sendKeys("Naoki123123123");
-        submitCredentialBtn.submit();
-    }
-
-    public void addCredentialWith(String url, String username, String password){
-        addCredentialBtn.click();
-        credentialURL.sendKeys(url);
-        credentialUsername.sendKeys(username);
-        credentialPassword.sendKeys(password);
-        submitCredentialBtn.submit();
-    }
-
-    public void logout(){
-        logOutBtn.click();
-    }
-
     public void showNoteModal(){
         addNoteBtn.click();
     }
@@ -147,6 +126,56 @@ public class HomePage {
     public void editNoteBtn(){
         editNoteBtn.click();
     }
+
+    // - Credential
+    public void addCredential(){
+        credentialURL.sendKeys("Github");
+        credentialUsername.sendKeys("Naoki");
+        credentialPassword.sendKeys("Naoki123123123");
+        saveCredentialBtn.click();
+    }
+
+    public void addCredentialWith(String url, String username, String password){
+        addCredentialBtn.click();
+        credentialURL.sendKeys(url);
+        credentialUsername.sendKeys(username);
+        credentialPassword.sendKeys(password);
+        saveCredentialBtn.submit();
+    }
+
+    public void clickCredentialTab(){
+        credentialTab.click();
+    }
+
+    public void deleteCredentialBtn(){
+        deleteCredentialBtn.click();
+    }
+
+    public void showCredentialModal(){
+        addCredentialBtn.click();
+    }
+
+    public void editCredentialBtn(){
+        editCredentialBtn.click();
+    }
+
+    public void editCredential(){
+        credentialURL.clear();
+        credentialUsername.clear();
+        credentialPassword.clear();
+
+        credentialURL.sendKeys("New URL");
+        credentialUsername.sendKeys("New Username");
+        credentialPassword.sendKeys("New Password");
+
+        saveCredentialBtn.click();
+    }
+
+    public void logout(){
+        logOutBtn.click();
+    }
+
+
 
 
 

@@ -35,15 +35,3 @@ public interface CredentialsMapper {
     @Update("UPDATE CREDENTIALS SET url = #{url}, username = #{username}, password = #{password}, key = #{key} WHERE credentialid = #{credentialId}")
     Integer updateCredential(Credential credential);
 }
-
-/*
-CREATE TABLE IF NOT EXISTS CREDENTIALS (
-    credentialid INT PRIMARY KEY auto_increment,
-    url VARCHAR(100),
-    username VARCHAR (30),
-    key VARCHAR,
-    password VARCHAR,
-    userid INT,
-    foreign key (userid) references USERS(userid)
-);
- */

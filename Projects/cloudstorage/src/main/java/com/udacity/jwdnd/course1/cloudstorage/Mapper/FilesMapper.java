@@ -19,9 +19,6 @@ public interface FilesMapper {
     @Options(useGeneratedKeys = true, keyProperty = "fileId")
     int insertFile(File file);
 
-//    @Update("UPDATE FILES SET filename = #{fileName}, contenttype = #{contentType}, filesize = #{fileSize}, filedata = #{fileData}")
-//    Integer updateFile(File file);
-
     @Delete("DELETE FROM FILES WHERE fileid = #{fileId}")
     void deleteFile(Integer fileId);
 }

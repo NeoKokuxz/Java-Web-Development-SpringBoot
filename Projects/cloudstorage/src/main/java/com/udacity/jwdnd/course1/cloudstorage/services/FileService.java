@@ -11,6 +11,12 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
+/**
+ * This class contains all method for File services
+ *
+ * @Author Neo Chen
+ *
+ */
 @Service
 public class FileService {
 
@@ -22,14 +28,22 @@ public class FileService {
         this.userMapper = userMapper;
     }
 
-    //Check duplicate
+    /**
+     * The checkFileDuplicate method checks for duplicate filename in the fileMapper
+     *
+     * @param filename
+     * @return true when duplicate found, false when no duplicate found
+     */
     public boolean checkFileDuplicate(String filename){
-        // != null - True = Duplicated
-        // == null - false = No duplicate
         return filesMapper.selectFile(filename) != null;
     }
 
-    //Get
+    /**
+     * The getFileList method gets list from fileMapper by username
+     *
+     * @param username
+     * @return list of files or empty array list
+     */
     public List<File> getFileList(String username){
         List<File> fileList = filesMapper.selectFileList(userMapper.getUser(username).getUserId());
         if(fileList == null){
@@ -42,7 +56,14 @@ public class FileService {
         return fileList;
     }
 
-    //Post
+    /**
+     * The insertFile method insert multipart file and userId into fileMapper
+     *
+     * @param file
+     * @param userId
+     * @return int value
+     * @throws IOException
+     */
     public Integer insertFile(MultipartFile file, Integer userId) throws IOException {
         return filesMapper.insertFile(new File(null,
                                                     file.getOriginalFilename(),
@@ -53,12 +74,12 @@ public class FileService {
 
     }
 
-//    //Put
-//    public Integer updateFile(File file){
-//        return filesMapper.updateFile(file);
-//    }
 
-    //Delete
+    /**
+     * The deleteFile method deletes file in fileMapper by fileId
+     *
+     * @param fileId
+     */
     public void deleteFile(Integer fileId){
         filesMapper.deleteFile(fileId);
     }

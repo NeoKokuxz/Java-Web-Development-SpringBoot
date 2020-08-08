@@ -15,8 +15,6 @@ public interface UserMapper {
     @Options(useGeneratedKeys = true, keyProperty = "userId")
     int insert(User user);
 
-    //PUT User
-
     //DELETE User
     @Delete("DELETE FROM USERS WHERE username = #{username}, password = #{password}")
     void deleteUser(String username, String password);

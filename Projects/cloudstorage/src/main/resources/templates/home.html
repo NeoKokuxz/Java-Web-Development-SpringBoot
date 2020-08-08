@@ -222,7 +222,7 @@
                 $('#credential-id').val(c && c.credentialId ? c.credentialId : '');
                 $('#credential-url').val(c && c.url ? c.url : '');
                 $('#credential-username').val(c && c.username ? c.username : '');
-                $('#credential-password').val(c && c.password ? c.password : '');
+                $('#credential-password').val(c && c.decryptedPassword ? c.decryptedPassword : '');
                 $('#credentialModal').modal('show');
             }
         </script>

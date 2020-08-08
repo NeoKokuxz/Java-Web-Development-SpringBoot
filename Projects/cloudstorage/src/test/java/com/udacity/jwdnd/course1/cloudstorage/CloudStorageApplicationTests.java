@@ -3,6 +3,7 @@ package com.udacity.jwdnd.course1.cloudstorage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -43,14 +44,12 @@ class CloudStorageApplicationTests {
 	@Test //Pass
 	public void testHomeWithoutLoin() throws InterruptedException {
 		driver.get("http://localhost:" + this.port + "/home");
-		Thread.sleep(1000);
 		Assertions.assertEquals("Login", driver.getTitle());
 	}
 
 	@Test //Pass
 	public void testLoginPage() throws InterruptedException {
 		driver.get("http://localhost:" + this.port + "/login");
-		Thread.sleep(1000);
 		Assertions.assertEquals("Login", driver.getTitle());
 	}
 
@@ -58,7 +57,6 @@ class CloudStorageApplicationTests {
 	public void testSignUpPage() throws InterruptedException {
 		driver.get("http://localhost:" + this.port + "/signup");
 		signUpPage = new SignUpPage(driver);
-		Thread.sleep(1000);
 		signup();
 	}
 
@@ -207,16 +205,14 @@ class CloudStorageApplicationTests {
 		//Sign up
 		driver.get("http://localhost:" + this.port + "/signup");
 		signUpPage = new SignUpPage(driver);
-		Thread.sleep(1000);
 		signUpPage.preSignup();
-		Thread.sleep(1000);
 	}
 
 	private void login() throws InterruptedException{
 		driver.get("http://localhost:" + this.port + "/login");
 		loginPage = new LoginPage(driver);
-		Thread.sleep(1000);
+
 		loginPage.preLogin();
-		Thread.sleep(1000);
+
 	}
 }

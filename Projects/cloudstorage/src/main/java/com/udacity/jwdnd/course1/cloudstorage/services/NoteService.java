@@ -9,10 +9,16 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class contains all method for Note services
+ *
+ * @Author Neo Chen
+ *
+ */
 @Service
 public class NoteService {
 
-    //Initial Mapper
+
     private final NotesMapper notesMapper;
     private final UserMapper userMapper;
 
@@ -21,11 +27,23 @@ public class NoteService {
         this.userMapper = userMapper;
     }
 
-    //Get
+    /**
+     * The getNote method select Note from noteMapper by username
+     *
+     * @param username
+     * @return Note object
+     */
     public Note getNote(String username){
        return notesMapper.selectNote(userMapper.getUser(username).getUserId());
     }
 
+    /**
+     * The getNoteList method will get user information by username
+     * then return a list of notes from noteMapper by userId
+     *
+     * @param username
+     * @return List of notes or empty Array list
+     */
     public List<Note> getNoteList(String username){
         User user = userMapper.getUser(username);
         List<Note> noteList = notesMapper.selectNoteList(user.getUserId());
@@ -36,21 +54,34 @@ public class NoteService {
         return noteList;
     }
 
-    //Post
+    /**
+     * The insertNote method insert note into noteMapper
+     *
+     * @param note
+     * @return int value
+     */
     public Integer insertNote(Note note){
        return notesMapper.insertNote(new Note(null,
                                                 note.getUserId(),
                                                 note.getNoteTitle(),
                                                 note.getNoteDescription()));
-
     }
 
-    //Put
+    /**
+     * The updateNote method will update note data in noteMapper
+     *
+     * @param note
+     * @return int value
+     */
     public Integer updateNote(Note note){
         return notesMapper.updateNote(note);
     }
 
-    //Delete
+    /**
+     * The deleteNote method deletes note in noteMapper by noteId
+     *
+     * @param noteId
+     */
     public void deleteNote(Integer noteId){
         notesMapper.deleteNote(noteId);
     }

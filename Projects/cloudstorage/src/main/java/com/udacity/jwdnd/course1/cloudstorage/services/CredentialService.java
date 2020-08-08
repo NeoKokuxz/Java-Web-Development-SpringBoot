@@ -11,6 +11,12 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
+/**
+ * This class contains all method for Credential services
+ *
+ * @Author Neo Chen
+ *
+ */
 @Service
 public class CredentialService {
     private final CredentialsMapper credentialsMapper;
@@ -23,36 +29,45 @@ public class CredentialService {
         this.encryptionService = encryptionService;
     }
 
-    //Get credential - Get
+    /**
+     * The getCredential method will get credential by id
+     *
+     * @param id
+     * @return credential object
+     */
     public Credential getCredential(Integer id) {
         Credential credential = credentialsMapper.selectCredential(id);
         return credential;
     }
 
+    /**
+     * The getCredentialList returns a list of credentials under the same username
+     * The encrypted password will shown on list
+     * The decrypted password only shown on edit or update modal
+     *
+     * @param username
+     * @return List of credentials or empty list if username not found
+     */
     public List<Credential> getCredentialList(String username){
         User user = userMapper.getUser(username);
         List<Credential> credentialList = credentialsMapper.getCredentialList(user.getUserId());
         if(credentialList == null){
             return new ArrayList<>();
         }
-
         for (Credential credential : credentialList) {
             String decryptPassword = decryptPassword(credential.getPassword(), credential.getKey());
-
-            credential.setPassword(decryptPassword);
-
+            credential.setDecryptedPassword(decryptPassword);
         }
-
         return credentialList;
 
     }
 
-    //Get credential count - Get
-    public int getCount(){
-        return credentialsMapper.getCredentialCount();
-    }
-
-    //Post credential - Create
+    /**
+     * The insertCredential method insert the credential into credentialMapper
+     *
+     * @param credential
+     * @return int value from credentialMapper
+     */
     public int insertCredential(Credential credential){
 
         if(credential.getKey() == null){
@@ -72,7 +87,13 @@ public class CredentialService {
                                                                     credential.getUserId()));
     }
 
-    //Put credential - Update
+    /**
+     * The updateCredential method takes credential and reset the key of credential
+     * then update the corresponding data via credentialMapper
+     *
+     * @param credential
+     * @return int value
+     */
     public int updateCredential(Credential credential){
 
         if(credential.getKey() == null){
@@ -84,26 +105,46 @@ public class CredentialService {
 
         credential.setPassword(encryptedPassword);
 
-        System.out.println(credential.getPassword());
-        System.out.println(credential.getKey());
-
-
         return credentialsMapper.updateCredential(credential);
     }
 
-    //Delete credential - Delete
+    /**
+     * The deleteCredential method deletes credential in credentialMapper via credentialId
+     *
+     * @param id
+     */
     public void deleteCredential(Integer id){
         credentialsMapper.deleteCredentials(id);
     }
 
+    /**
+     * The encryptedPassword method takes in password and key in order to encrypt
+     *
+     * @param password
+     * @param key
+     * @return String of new encrypted password
+     */
     private String encryptPassword(String password, String key){
         return encryptionService.encryptValue(password, key);
     }
 
+    /**
+     *The decryptedPassword method takes in password and key in order to decrypt
+     *
+     * @param password
+     * @param key
+     * @return String of new decrypted password
+     */
     private String decryptPassword(String password, String key) {
         return encryptionService.decryptValue(password, key);
     }
 
+    /**
+     * The generateKey method will generate random key in Base64
+     *
+     * @param credential
+     * @return String of encoded key
+     */
     private String generateKey(Credential credential){
         SecureRandom random = new SecureRandom();
         byte[] key = new byte[16];

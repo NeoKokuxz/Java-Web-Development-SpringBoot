@@ -20,11 +20,18 @@ public class AuthService implements AuthenticationProvider {
         this.hashService = hashService;
     }
 
+    /**
+     * This method gets name and password from Authentication. Map data from userMapper using the name return
+     *from Authentication and check it's value
+     * Null - No User
+     *
+     * @param authentication
+     * @return UsernamePasswordAuthenticationToken or null
+     * @throws AuthenticationException
+     */
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        //Let Spring security get username and password from form
         String username = authentication.getName();
-        //Credentials are objects, set toString to see the actual value
         String password = authentication.getCredentials().toString();
 
         //Call the user object and wait for the Mapper class to call the SQL query
@@ -40,13 +47,17 @@ public class AuthService implements AuthenticationProvider {
                 return new UsernamePasswordAuthenticationToken(username, password, new ArrayList<>() );
             }
         }
-
         return null;
     }
 
+    /**
+     * This method checks UsernamePasswordAuthenticationToken class
+     *
+     * @param authentication
+     * @return boolean
+     */
     @Override
     public boolean supports(Class<?> authentication) {
-        //?????
         return authentication.equals(UsernamePasswordAuthenticationToken.class);
     }
 

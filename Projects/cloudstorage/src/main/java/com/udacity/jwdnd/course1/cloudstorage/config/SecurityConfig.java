@@ -26,7 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/signup", "/css/**", "/js/**").permitAll().antMatchers("/h2").permitAll()
+                //.antMatchers("/h2").permitAll()
+                .antMatchers("/signup", "/css/**", "/js/**").permitAll()
                 .anyRequest().authenticated();
 
         http.formLogin()
@@ -36,12 +37,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin()
                 .defaultSuccessUrl("/home", true);
 
-        http.logout().logoutUrl("/logout");
+        http.logout();
 
         //The code below enable H2 console
         // Also .antMatchers("/h2").permitAll() allows only user logged in to view console
-        http.csrf().disable();
-        http.headers().frameOptions().disable();
+//        http.csrf().disable();
+//        http.headers().frameOptions().disable();
     }
 
 

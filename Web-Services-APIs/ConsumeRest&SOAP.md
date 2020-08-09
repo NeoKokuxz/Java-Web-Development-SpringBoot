@@ -51,6 +51,7 @@ spring-boot-starter-web-services
 - Generate domain object based on WSDL
 
 - Mapping XML to Java and Vice Versa
+- Set up dependency and plug in below
 ```xml
   
 		<!--Marshalling/UnMarshalling Dependencies-->

@@ -13,13 +13,13 @@ import java.util.Optional;
 public class Mutation implements GraphQLMutationResolver {
     private DogRepository dogRepository;
 
-    public Mutation(DogRepository dogRepository){
+    public Mutation(DogRepository dogRepository) {
         this.dogRepository = dogRepository;
     }
 
-    public Dog updateDogName(String newName, Long id){
+    public Dog updateDogName(String newName, Long id) {
         Optional<Dog> optionalDog = dogRepository.findById(id);
-        if(optionalDog.isPresent()){
+        if (optionalDog.isPresent()) {
             Dog dog = optionalDog.get();
             dog.setName(newName);
             dogRepository.save(dog);

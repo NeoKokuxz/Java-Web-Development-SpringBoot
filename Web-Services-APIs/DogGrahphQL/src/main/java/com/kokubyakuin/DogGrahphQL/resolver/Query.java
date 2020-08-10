@@ -13,17 +13,17 @@ public class Query implements GraphQLQueryResolver {
 
     private DogRepository dogRepository;
 
-    public Query(DogRepository dogRepository){
+    public Query(DogRepository dogRepository) {
         this.dogRepository = dogRepository;
     }
 
-    public Iterable<Dog> findDogBreeds(){
+    public Iterable<Dog> findDogBreeds() {
         return dogRepository.findAll();
     }
 
-    public Dog findDogBreedById(Long id){
-        Optional <Dog> optionalDog = dogRepository.findById(id);
-        if(optionalDog.isPresent()){
+    public Dog findDogBreedById(Long id) {
+        Optional<Dog> optionalDog = dogRepository.findById(id);
+        if (optionalDog.isPresent()) {
 //            Dog dog = optionalDog.get();
 //            return dog;
             return optionalDog.get();
@@ -32,7 +32,7 @@ public class Query implements GraphQLQueryResolver {
         }
     }
 
-    public Iterable<Dog> findAllDogNames(){
+    public Iterable<Dog> findAllDogNames() {
         return dogRepository.findAll();
     }
 }

@@ -13,24 +13,24 @@ public class Mutation implements GraphQLMutationResolver {
 
     private LocationRepository locationRepository;
 
-    public Mutation(LocationRepository locationRepository){
+    public Mutation(LocationRepository locationRepository) {
         this.locationRepository = locationRepository;
     }
 
-    public Location newLocation(String name, String address){
+    public Location newLocation(String name, String address) {
         Location location = new Location(name, address);
         locationRepository.save(location);
         return location;
     }
 
-    public boolean deleteLocation(Long id){
+    public boolean deleteLocation(Long id) {
         locationRepository.deleteById(id);
         return true;
     }
 
-    public Location updateLocationName(String name, Long id){
+    public Location updateLocationName(String name, Long id) {
         Optional<Location> optionalLocation = locationRepository.findById(id);
-        if(optionalLocation.isPresent()){
+        if (optionalLocation.isPresent()) {
             Location location = optionalLocation.get();
             location.setName(name);
             return location;

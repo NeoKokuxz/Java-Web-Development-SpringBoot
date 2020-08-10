@@ -8,11 +8,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class LocationServiceIMP implements LocationService{
+public class LocationServiceIMP implements LocationService {
     @Autowired
     LocationRepository locationRepository;
 
-    public List<Location> retrieveLocations(){
+    public List<Location> retrieveLocations() {
         return (List<Location>) locationRepository.findAll();
     }
 }

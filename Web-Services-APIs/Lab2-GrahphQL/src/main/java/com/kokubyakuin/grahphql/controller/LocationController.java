@@ -20,7 +20,7 @@ public class LocationController {
     }
 
     @GetMapping("/location")
-    public ResponseEntity<List<Location>> getAllLocation(){
+    public ResponseEntity<List<Location>> getAllLocation() {
         List<Location> list = locationService.retrieveLocations();
         return new ResponseEntity<>(list, HttpStatus.OK);
     }

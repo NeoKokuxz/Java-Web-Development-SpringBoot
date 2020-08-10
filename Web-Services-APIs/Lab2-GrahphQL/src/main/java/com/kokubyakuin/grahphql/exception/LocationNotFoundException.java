@@ -27,7 +27,7 @@ public class LocationNotFoundException extends RuntimeException implements Graph
     }
 
     @Override
-    public Map<String, Object> getExtensions(){
+    public Map<String, Object> getExtensions() {
         return extensions;
     }
 }

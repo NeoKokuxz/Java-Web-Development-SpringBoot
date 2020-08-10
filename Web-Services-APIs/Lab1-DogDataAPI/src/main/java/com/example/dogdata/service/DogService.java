@@ -14,11 +14,11 @@ public class DogService implements DogInterface {
     @Autowired
     DogRepo repo;
 
-    public List<Dog> retrieveDogs(){
+    public List<Dog> retrieveDogs() {
         return (List<Dog>) repo.findAll();
     }
 
-    public List<String> retrieveDogBreed(){
+    public List<String> retrieveDogBreed() {
         return repo.findAllBreed();
     }
 
@@ -26,7 +26,7 @@ public class DogService implements DogInterface {
 //        return repo.findBreedById(id);
 //    }
 
-    public List<String> retrieveDogNames(){
+    public List<String> retrieveDogNames() {
         return repo.findAllName();
     }
 

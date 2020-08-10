@@ -12,7 +12,7 @@ public class BreedNotFoundException extends RuntimeException implements GraphQLE
 
     private Map<String, Object> extension = new HashMap<>();
 
-    public BreedNotFoundException(String message, String breed){
+    public BreedNotFoundException(String message, String breed) {
         super(message);
         extension.put(message, breed);
     }

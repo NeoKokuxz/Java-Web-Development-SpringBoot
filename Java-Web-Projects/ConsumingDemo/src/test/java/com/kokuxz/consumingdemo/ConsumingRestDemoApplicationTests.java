@@ -1,10 +1,10 @@
-package com.kokubyakuin.grahphql;
+package com.kokuxz.consumingdemo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GrahphqlApplicationTests {
+class ConsumingRestDemoApplicationTests {
 
     @Test
     void contextLoads() {

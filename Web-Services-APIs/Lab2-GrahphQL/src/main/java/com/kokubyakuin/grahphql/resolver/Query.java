@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
 public class Query implements GraphQLResolver {
     private LocationRepository locationRepository;
 
-    public Query(LocationRepository locationRepository){
+    public Query(LocationRepository locationRepository) {
         this.locationRepository = locationRepository;
     }
 
-    public Iterable<Location> findAllLocations(){
+    public Iterable<Location> findAllLocations() {
         return locationRepository.findAll();
     }
 }

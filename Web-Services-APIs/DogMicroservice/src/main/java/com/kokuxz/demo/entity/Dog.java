@@ -15,7 +15,7 @@ public class Dog {
     private String breed;
     private String origin;
 
-    public Dog (){
+    public Dog() {
 
     }
 

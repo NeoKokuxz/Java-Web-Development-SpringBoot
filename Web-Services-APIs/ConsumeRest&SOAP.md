@@ -101,3 +101,30 @@ spring-boot-starter-web-services
 			</plugin>
 
 ```
+### Create Client
+- Extend WebServiceGatewaySupport
+	- Code operation
+```java
+public class NumberClient extends WebServiceGatewaySupport {
+
+    public NumberToWordsResponse getWords(String numbers) {
+            //publicly accessible SOAP service
+            String uri = "https://www.dataaccess.com/webservicesserver/NumberConversion.wso";
+
+            //set the request
+            NumberToWords numberRequest = new NumberToWords();
+            numberRequest.setUbiNum(new BigInteger(numbers));
+
+            //obtain and return the response
+            NumberToWordsResponse response =
+                    (NumberToWordsResponse) getWebServiceTemplate().marshalSendAndReceive(uri,numberRequest);
+
+            return response;
+    }
+
+}
+```
+#### Jaxb2Marshaller 
+- this is to serialize and de-serialize XML requests to and from Java
+
+

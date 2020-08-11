@@ -98,7 +98,7 @@ spring-boot-starter-web-services
 						<include>*.wsdl</include>
 					</schemaIncludes>
 				</configuration>
-			</plugin>
+	</plugin>
 
 ```
 ### Create Client
@@ -126,5 +126,43 @@ public class NumberClient extends WebServiceGatewaySupport {
 ```
 #### Jaxb2Marshaller 
 - this is to serialize and de-serialize XML requests to and from Java
+
+## Documentation for REST APIs
+Documentation is a good way to communicate to others how they can use your APIs. Documentation communicates the operations available, the format for requesting data and the format data will be returned in.
+
+### OpenAPI
+OpenAPI allows to describe API using JSON or YAML. 
+	- YAML is a mark up language used for configuration files
+		- Available endpoints
+		- Operations with parameters
+		- Authentication methods
+		- Contact information about API
+		
+### Swagger
+Swagger is the name associated with some of the most well-known and widely used tools for implementing the OpenAPI specification. It helps design, build and consume APIs.
+	- SpringFox - A swagger intergration for the Spring Framework.
+	- Swagger Editor – A browser-based editor where you can write OpenAPI specs
+	- Swagger UI – A web application that renders OpenAPI specs as interactive API documentation.
+	- Swagger Codegen – A tool that generates server stubs and client libraries from an OpenAPI spec.
+	
+	- Dependencies
+	```xml
+	<dependency>
+	    <groupId>io.springfox</groupId>
+	    <artifactId>springfox-swagger-ui</artifactId>
+	    <version>2.9.2</version>
+	</dependency>
+
+	<dependency>
+	    <groupId>io.springfox</groupId>
+	    <artifactId>springfox-swagger2</artifactId>
+	    <version>2.9.2</version>
+	    <scope>compile</scope>
+	</dependency>
+	```
+
+#### Swagger UI
+Dynamically generated documentation from a Swagger-compliant API is displayed in the Swagger UI, which consists of HTML, JavaScript, and CSS files. The documentation files are bundled by Swagger UI to display the API in a web browser.
+
 
 

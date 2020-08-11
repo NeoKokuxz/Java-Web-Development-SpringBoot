@@ -1,5 +1,7 @@
 package com.kokuxz.consumingdemo;
 
+import com.kokuxz.consumingdemo.entity.GG;
+import com.kokuxz.consumingdemo.entity.Ghibli;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,9 +26,11 @@ public class ConsumingRestDemoApplication {
     public CommandLineRunner run (RestTemplate restTemplate) throws Exception {
         return args -> {
             //Entity/Model class that matches the json return
-
-            System.out.println();
-        }
+            Ghibli ghibli = restTemplate.getForObject("https://ghibliapi.herokuapp.com/films/58611129-2dbc-4a81-a72f-77ddfc1b1b49",Ghibli.class);
+            GG gg = restTemplate.getForObject("https://ghibliapi.herokuapp.com/films/58611129-2dbc-4a81-a72f-77ddfc1b1b49",GG.class);
+            System.out.println(ghibli.toString());
+            System.out.println("Break");
+            System.out.println(gg.toString());
+        };
     }
-
 }

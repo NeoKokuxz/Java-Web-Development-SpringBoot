@@ -207,7 +207,28 @@ public class SwaggerConfig {
 - Passing parameters to apis() and path() methods
 - Override response message on HTTP method 
 
+```java
+    @Bean
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2)
+                .select()
+                .apis(RequestHandlerSelectors.any())
+                .paths(PathSelectors.any())
+                .build()
+		//Set the use default response message to false ****
+                .useDefaultResponseMessages(false);
+    }
+```
+```java
+@RestController
+//Custome Swagger message here ****
+@ApiResponses(value = {
+        @ApiResponse(code=400, message = "This is a bad request, please follow the API documentation for the proper request format."),
+        @ApiResponse(code=401, message = "Due to security constraints, your access request cannot be authorized. "),
+        @ApiResponse(code=500, message = "The server is down. Please make sure that the Location microservice is running.")
+})
+public class LocationController
 
-
+```
 
 

@@ -163,6 +163,8 @@ Swagger is the name associated with some of the most well-known and widely used 
 
 #### Swagger UI
 Dynamically generated documentation from a Swagger-compliant API is displayed in the Swagger UI, which consists of HTML, JavaScript, and CSS files. The documentation files are bundled by Swagger UI to display the API in a web browser.
+- http://localhost:8080/swagger-ui.html
+
 
 #### Swagger Dependencies
 ```xml
@@ -199,6 +201,11 @@ public class SwaggerConfig {
 - Swagger also provides some default values in its response that you can customize, such as “Api Documentation”, “Created by Contact Email”, “Apache 2.0”. To change these values, you can use the apiInfo(ApiInfo apiInfo) method.
 
 
+#### Customization of Swagger
+- Not desirable to expose entire API
+- Restrict Swagger's response
+- Passing parameters to apis() and path() methods
+- Override response message on HTTP method 
 
 
 

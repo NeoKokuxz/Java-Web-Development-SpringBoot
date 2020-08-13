@@ -22,7 +22,7 @@
 - Hamcrest
 - And other useful libraries
 
-### Unit Testing
+## Unit Testing
 - JUnit
 - Mockito
 - MockMVC - Aka Spring Test
@@ -73,3 +73,12 @@ public class LocationControllerUnitTest {
     }
 }
 ```
+## Integration Test
+Integration testing allows for testing of the entire application (and all of its layers) as opposed to just individual components.
+- Entrie application and all layers
+- Doesn't require application deployment
+- @SpringBootTest is chosed for integration test over @WebMvcTest
+        - Because @SpringBootTest starts the full application including server, no custom component scanning
+        - @SpringBootTest will look for the main configuration class with @SpringBoot
+        - Test controller/service/Data access but NOT* User Interface UI. 
+        

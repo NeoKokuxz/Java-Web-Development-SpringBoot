@@ -56,7 +56,7 @@ public class LocationControllerUnitTest {
         mockMvc.perform(get("/location/")) //Ger Request - Path
                 //Below are expectations such as HTTP responses received from controller class
                 .andExpect(status().isOk()) //Return ok
-                .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8)) //Return Application_JSON_UTF8
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON)) //Return Application_JSON
                 .andExpect(content().json("[]"));
 
         //Verify the time of mock method has been called

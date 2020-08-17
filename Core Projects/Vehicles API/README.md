@@ -8,7 +8,7 @@ Check each component to see its details and instructions. Note that all three ap
 should be running at once for full operation. Further instructions are available in the classroom.
 
 - [Vehicles API](vehicles-api/README.md)
-- [Pricing Service](price-service/README.md)
+- [Pricing Service](Price-Service/README.md)
 - [Boogle Maps](boogle-maps/README.md)
 
 ## Dependencies

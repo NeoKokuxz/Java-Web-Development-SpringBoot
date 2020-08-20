@@ -37,6 +37,8 @@ Converting Type: String name can be custom with @Type(type="nstring") instead of
 - Started class with @Embeddable annotation
 - The class implements Serializable interface
 - Override the equals and hashcode method. 
+
+#### @Embeddable
 ```java
 @Embeddable
 public class PersonPK implements Serializable {
@@ -68,7 +70,60 @@ public class Delivery {
     @EmbeddedId
     PersonPK id;
 ```
+#### @IdClass
+```java
+public class PersonPK implements Serializable {
+   private int heightCm;
+   private String sockColor;
 
+   @Override
+   public boolean equals(Object o) {...}
+
+   @Override
+   public int hashCode() {...}
+   /* getters and setters*/
+}
+```
+```java
+@Entity
+@IdClass(PersonPK.class)
+public class Person {
+   @Id
+   private int heightCm;
+   @Id
+   private String sockColor;
+
+   public PersonPK getId() {
+       PersonPK id = new PersonPK();
+       id.setHeightCm(heightCm);
+       id.setSockColor(sockColor);
+       return id;
+   }
+
+   public void setId(PersonPK id) {
+       this.heightCm = id.getHeightCm();
+       this.sockColor = id.getSockColor();
+   }
+   /* getters and setters */
+}
+```
+
+#### @Embeddle Vs. @IdClass
+- @Embeddable
+    - Key fields are more obvious
+        - person.id.sockColor
+    - Object-oriented querying by id object type
+    - Preferred when PK has meaning to your application
+    - Preferred when PK is reused elsewhere is the app
+    
+- @IdClass
+    - Allows use of unmodifiable classes as keys
+    - Sometimes used to support legacy or 3rd-party code
+    - Key fields not distinguishable 
+        - person.sockColor
+    - Must query by specific attributes
+    - Allows generation of values within the PK
+    - Support Auto generated ID
 
 
 

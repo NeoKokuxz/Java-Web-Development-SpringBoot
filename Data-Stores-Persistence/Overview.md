@@ -231,6 +231,65 @@ public class Person {
 
 ### @ElementCollection
 > You can use the @ElementCollection annotation to denote an association between a single Entity and a list of values that are not themselves Entities. This annotation lets you persist Lists of Embeddables or enums, for example. These embeddables will be stored in a separate table, along with the id of the Entity in which they are contained.
+```java
+@Entity
+public class Person {
+   @Id
+   @GeneratedValue
+   private Long id;
 
+   @ElementCollection
+   private List<Outfit> outfits;
 
+   /* rest of class */
+}
 
+@Embeddable
+public class Outfit {
+   private String hat;
+   private String gloves;
+   private String shoes;
+   private String legs;
+   private String top;
+}
+```
+
+### Inheritance
+```java
+@Entity
+public abstract class Humanoid {
+   @Id
+   @GeneratedValue
+   Long id;
+
+   @OneToMany(mappedBy = "humanoid")
+   List<Outfit> outfits;
+
+   /* getters and setters */
+}
+
+@Entity
+public class Person extends Humanoid {
+
+   @Type(type="nstring")
+   private String name;
+   private int age;
+   @Column(name="composer", length=512)
+   private String favoriteComposer;
+
+   /* getters and setters */
+}
+
+@Entity
+public class CreepyDepartmentStoreMannequin extends Humanoid {
+
+   private boolean hasAHead;
+   private MannequinShape mannequinShape;
+
+   enum MannequinShape {
+       LITHE, MUSCULUR, UNASSUMING;
+   }
+
+    /* getters and setters */
+}
+```

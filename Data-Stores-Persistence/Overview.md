@@ -125,6 +125,112 @@ public class Person {
     - Allows generation of values within the PK
     - Support Auto generated ID
 
+#### Unidirectional Association / Bi-directional Association
+
+- Types of Entity Associations
+    - OneToOne: Single Entity on each side of the relationship.
+    - OneToMany and ManyToOne: List of Entities on one side, single Entity on the other.
+    - ManyToMany: Lists of Entities on both sides.
+
+- @OneToOne
+- @JoinColumn(name = "outter_column")
+
+- Bi-directional Association
+    - Turn the outter class into @Entity
+    - Provide @OneToOne to the main class
+    - Mapped by attribute on the child side of the relationship
+    - child side is the primary entity class
+    - This allows the contained entity class table to control theforeign key constraint 
+    
+- Code:
+    - Unidirectional
+```java
+@Entity
+public class Person {
+   @Id
+   @GeneratedValue
+   private Long id;
+
+   @OneToMany
+   private List<Outfit> outfits;
+
+   /* rest of class */
+}
+
+@Entity
+public class Outfit {
+   @Id
+   @GeneratedValue
+   private Long id;
+
+   /* rest of class */
+}
+```
+ - Bidirectional
+```java
+@Entity
+public class Person {
+   @Id
+   @GeneratedValue
+   private Long id;
+
+   @OneToMany(mappedBy = "person")
+   private List<Outfit> outfits;
+
+   /* rest of class */
+}
+
+@Entity
+public class Outfit {
+   @Id
+   @GeneratedValue
+   private Long id;
+
+   @ManyToOne
+   private Person person;
+
+   /* rest of class */
+}
+```
+
+- @JoinTable
+```java
+@Entity
+public class Person {
+   @Id
+   @GeneratedValue
+   private Long id;
+
+   @ManyToMany
+   @JoinTable(
+      name = "person_outfit",
+      joinColumns = { @JoinColumn(name = "person_id")},
+      inverseJoinColumns = { @JoinColumn(name = "outfit_id")}
+   )
+   private List<Outfit> outfits;
+
+   /* rest of class */
+}
+```
+    
+## Entity Relationships
+- Value Type
+    - Become single columns in their containing Enetity table
+- Embeddable
+    - Objects add their attributes as columns to their containing Entity table
+- Entities
+    - Become new tables which are ferenced to their containing Entity table through a Join Column
+
+### Association Types
+- OneToOne 
+    - Single Entity on each side of the relationship
+- OneToMany or ManyToOne
+    - List of Entities on one side and single on other side
+- ManyToMany
+    - List of Entities on both side    
+
+### @ElementCollection
+> You can use the @ElementCollection annotation to denote an association between a single Entity and a list of values that are not themselves Entities. This annotation lets you persist Lists of Embeddables or enums, for example. These embeddables will be stored in a separate table, along with the id of the Entity in which they are contained.
 
 
 

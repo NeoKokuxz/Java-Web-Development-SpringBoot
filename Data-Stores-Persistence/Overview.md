@@ -255,6 +255,9 @@ public class Outfit {
 ```
 
 ### Inheritance
+- Composition: Objects are related because one of them "has-a" refrence to the other one
+- Inheritance: Objects are related because one of them "is-a" type of other one. 
+
 ```java
 @Entity
 public abstract class Humanoid {

@@ -304,3 +304,18 @@ public class CreepyDepartmentStoreMannequin extends Humanoid {
 
 - @MappedSuperclass
 > This is selected by using the @MappedSuperclass annotation on the parent class instead of @Entity. It creates a table per class just like TABLE_PER_CLASS, but there is no superclass table. It does not support polymorphic queries, but never requires UNIONS to query subclasses.
+
+## Multitier Architecture Advantages
+- Maintenance
+    - Centralizes access to your data source
+    - Reduces time needed to make changes to Entity interactions
+    - Reduces amount of code each developer needs to understand
+- Performance
+    - Allows application layers to easily be separated into modules
+    - Reduces application size
+    - Enables scaling of independent components
+    - Supports future architecture deployment
+- Security
+    - Able to secure each tier with different permissions
+    - Reduces redundant authentication in other tiers
+

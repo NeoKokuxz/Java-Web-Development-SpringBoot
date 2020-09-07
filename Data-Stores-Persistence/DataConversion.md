@@ -11,3 +11,8 @@
 
 ## JSONView Annotation
 - Filters which Entity data is visible to the presentation layer.
+- Quickly specify which parts of Entities should be visible to which consumer.
+- Often a simple choice when controlling full stack.
+- Not as helpful when you need to combine data from multiple Entities.
+- Can require Entity updates if front end needs change.
+- Often grouped together in a Views class, containing interfaces such as ‘Public’, ‘Private’, or interfaces named for specific endpoint recipients.

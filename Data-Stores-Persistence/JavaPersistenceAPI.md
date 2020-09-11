@@ -67,4 +67,24 @@ public void deleteExample(Long id) {
    - @ManyToOne
    - @OneToOne
   
+```java
+@Entity
+public class Person {
+
+   @Id
+   @GeneratedValue
+   Long id;
+
+   @OneToMany(mappedBy = "person", fetch = FetchType.LAZY)
+   List<Outfit> outfits;
+
+   private String name;
+   private int age;
+   private String favoriteComposer;
+
+   /* rest of class */
+}
+```
+#### Default Value
+> An easy way to remember this is that both associations mapping to Many objects default to Lazy, because it’s more costly to retrieve lots of objects from the database. Associations mapping to One object default to Eager, because there’s usually less information.
 

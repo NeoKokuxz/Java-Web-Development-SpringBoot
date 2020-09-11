@@ -88,3 +88,26 @@ public class Person {
 #### Default Value
 > An easy way to remember this is that both associations mapping to Many objects default to Lazy, because it’s more costly to retrieve lots of objects from the database. Associations mapping to One object default to Eager, because there’s usually less information.
 
+### CascadeType
+> CascadeType allows us to modify Entity associations so that persistence operations on one Entity will cascade to other Entities associated with it.
+- Each cascadeType will Cascade operations of that specific type
+- Propagates corresponding EntityManager methods to any assoicated Entities
+
+```java
+@Entity
+public class Person {
+
+   @Id
+   @GeneratedValue
+   Long id;
+
+   @OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+   List<Outfit> outfits;
+
+   private String name;
+   private int age;
+   private String favoriteComposer;
+
+   /* rest of class */
+```
+

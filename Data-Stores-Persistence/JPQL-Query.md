@@ -42,3 +42,4 @@ List<Humanoid> findHumanoidByOutfit(Outfit o){
    return query.getResultList();
 }
 ```
+### Static Query String Constants

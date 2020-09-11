@@ -58,11 +58,11 @@ public void deleteExample(Long id) {
 ```
 
 ## Default FetchTypes
-- FetchType.LAZY
+### FetchType.LAZY
 > Always retrieve the associated values as part of the Entity retrieval. This means the initial query for the entity retrieves this data.
    - @OneToMany
    - @ManyToMany
-- FetchType.EAGER
+### FetchType.EAGER
 > Wait to retrieve associated values until they are referenced. Lazy-loaded attributes are Hibernate proxy objects whose specific values are retrieved from the database only if they’re accessed. The initial query for the entity will NOT retrieve this data.
    - @ManyToOne
    - @OneToOne

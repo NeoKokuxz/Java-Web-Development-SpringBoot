@@ -42,4 +42,59 @@ List<Humanoid> findHumanoidByOutfit(Outfit o){
    return query.getResultList();
 }
 ```
+## Named Queries
+> Named queries can help us organize our queries by class. They also allow us to compiler-check our queries for validity at build time. Any named queries that reference invalid entities will throw exceptions, helping ensure we don’t commit invalid query strings. To use them, declare them at the top of the Entity class to which they refer. Remember that their names are global across the whole persistence unit, so they should all have unique names.
 ### Static Query String Constants
+- NOTE*** both annotation should be use at class level (above class declaration)
+- @NamedQuery Annotation
+```java
+@NamedQuery(
+       name = "Outfit.findByHat",
+       query = "select o from Outfit o where o.hat = :hat")
+TypedQuery<Outfit> query = entityManager.createNameQuery("Outfit.findByHat", Outfit.class); 
+```
+- @NamedQueries Annotation
+```java
+@NamedQueries{
+       @NamedQuery(
+              name = "Outfit.findByHat",
+              query = "select o from Outfit o where o.hat = :hat")
+       TypedQuery<Outfit> query = entityManager.createNameQuery("Outfit.findByHat", Outfit.class); 
+       @NamedQuery(
+              name = "Outfit.findBySock",
+              query = "select o from Outfit o where o.sock = :sock")
+       TypedQuery<Outfit> query = entityManager.createNameQuery("Outfit.findBySock", Outfit.class); 
+}
+
+```
+#### Constant Query String
+```java
+private static final String FIND_PERSON_BY_COMPOSERS = "select p from Person p where p.favoriteComposer like :favoriteComposer"
+```
+#### Query Fragments
+```java
+private static final String SELECT_FIND_PERSON = "select p from Person p" ;
+private static final String WHERE_COMPOSER = "where p.favoriteComposer like :favoriteComposer";
+private static final String WHERE_PANTS = "where p.outfit.shoes = :shoes"
+```
+
+#### Criteria Interface
+> Allows you to use Java to construct your query
+##### Criteria Builder
+- OG Query
+```java
+SELECT h FROM Humanoid h
+WHERE :outfit MEMBER OF h.outfits
+```
+- Criteria Built Query
+```java
+List<Humanoid> findHumanoidByOutfitCriteria(Outfit o) {
+   CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+   CriteriaQuery<Humanoid> criteria = cb.createQuery(Humanoid.class);
+   Root<Humanoid> root = criteria.from(Humanoid.class);
+
+   criteria.select(root).where(cb.isMember(o, root.get("outfits")));
+   return entityManager.createQuery(criteria).getResultList();
+}
+```
+

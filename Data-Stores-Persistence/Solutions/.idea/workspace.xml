@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="caf9b7fc-5c68-4196-be1c-44c692a5929f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Solutions.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Solutions/TwoSum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TwoSum.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA 2019.3.3\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1gR6W6BR7FthXcpggsv91HjMuBy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="TwoSum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TwoSum" />
+      <module name="Solutions" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TwoSum" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="caf9b7fc-5c68-4196-be1c-44c692a5929f" name="Default Changelist" comment="" />
+      <created>1598065086103</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1598065086103</updated>
+      <workItem from="1598065087134" duration="3423000" />
+      <workItem from="1598150735605" duration="648000" />
+      <workItem from="1598227738536" duration="675000" />
+      <workItem from="1598229281144" duration="2000" />
+      <workItem from="1598229292248" duration="4000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1690" y="445" key="#Project_Structure" timestamp="1598065099958">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="1690" y="445" key="#Project_Structure/0.0.3440.1400/3440.-278.1080.1880@0.0.3440.1400" timestamp="1598065099958" />
+    <state x="2124" y="509" key="FileChooserDialogImpl" timestamp="1598065564639">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state x="2124" y="509" key="FileChooserDialogImpl/0.0.3440.1400/3440.-278.1080.1880@0.0.3440.1400" timestamp="1598065564639" />
+    <state width="1314" height="325" key="GridCell.Tab.0.bottom" timestamp="1598068952822">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1314" height="325" key="GridCell.Tab.0.bottom/0.0.3440.1400/3440.-278.1080.1880@0.0.3440.1400" timestamp="1598068952822" />
+    <state width="1314" height="325" key="GridCell.Tab.0.center" timestamp="1598068952822">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1314" height="325" key="GridCell.Tab.0.center/0.0.3440.1400/3440.-278.1080.1880@0.0.3440.1400" timestamp="1598068952822" />
+    <state width="1314" height="325" key="GridCell.Tab.0.left" timestamp="1598068952822">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1314" height="325" key="GridCell.Tab.0.left/0.0.3440.1400/3440.-278.1080.1880@0.0.3440.1400" timestamp="1598068952822" />
+    <state width="1314" height="325" key="GridCell.Tab.0.right" timestamp="1598068952822">
+      <screen x="0" y="0" width="3440" height="1400" />
+    </state>
+    <state width="1314" height="325" key="GridCell.Tab.0.right/0.0.3440.1400/3440.-278.1080.1880@0.0.3440.1400" timestamp="1598068952822" />
+  </component>
+</project>

@@ -21,7 +21,7 @@ public class DeliveryRepository {
     EntityManager entityManager;
 
     public void persist(Delivery delivery){
-
+        entityManager.persist(delivery);
     }
 
     public Delivery find (Long id){

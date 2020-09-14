@@ -80,3 +80,69 @@
 
 ## JSONView Annotations
 - Annotation that filters which Entity data is visible to the Presentation layer.
+
+## Persistence Context
+- Describes the relationship between all the Entity instances in our program and their representations in the underlying database.
+
+## Instance
+- A specific copy of an Entity in program memory.
+
+## Persistence Context Entity States
+- Transient: not associated with the persistence context. Often has not yet had an ID assigned.
+- Managed: persistent. Managed by the current persistence context. Changes to the entity will be reflected in the backing database.
+- Detached: previously managed. Occurs to all managed entities when persistence context ends.
+- Removed: scheduled to be removed from the database. Java object still exists and has ID.
+
+## Entity Manager
+- Class that manages the persistence state of Entities in the Persistence Context
+
+## Entity Manager Operations
+- Persist: Takes an Entity not yet managed. The Entity becomes managed and will be saved to the database.
+- Find: Looks up an id in the database and returns a managed Entity.
+- Merge: Updates an Entity that is in the detached state. Returns an instance of that Entity that is now managed. If Entity was not found in the database to update, persists Entity as a new row.
+- Remove: Detaches an entity and deletes it from the database.
+
+## Lazy Loading
+- A way to prevent associated Entities from being retrieved until they are referenced.
+
+## FetchType.EAGER
+- Always retrieve the associated values as part of the Entity retrieval. Default value for @ManyToOne and @OneToOne.
+
+## FetchType.LAZY
+- Wait to retrieve associated values until they are referenced. Default value for @OneToMany and @ManyToMany.
+
+## CascadeType
+- Specifies which persistence operations should apply to associated entities when executed on the containing entity.
+
+## CRUD
+- Short for 'Create', 'Read', 'Update', 'Delete', the four main categories of basic database operations.
+
+## JPQL
+- Java Persistence Query Language. A query language very similar to SQL that can be used to reference Entities and their attributes directly.
+
+## Named Queries
+- Query strings that are defined in a class-level annotation that are validated on application launch.
+
+## Projections
+- Results of queries that are loaded into objects other than Entities.
+
+## Repository Pattern
+- A way of thinking about your database as a collection of objects. Exposes methods similar to Collection interfaces like Map or Set.
+
+## @Repository Annotation
+- A specialization of the Spring @Component annotation. Marks a class for component scanning by Spring and also indicates that persistence exceptions thrown by the class should be translated into Spring exceptions.
+
+## Spring Data JPA Repository
+- An interface specifying default repository behavior. Extending these interfaces allows Spring Data to automatically generate implementations based on interface method names.
+
+## Flushing
+> The process of synchronizing the state of the persistence context with the underlying database. Triggered by:
+- Transaction Ends
+- Query overlaps with queued Entity actions
+- Native SQL Query executes without registering affected Entities
+
+## Transaction
+- A set of operations that either succeed or fail as a group.
+
+## Level 1 Cache
+- An intermediate layer into which changes can be written and objects retrieved quickly. The Persistence Context functions as a Level 1 Cache, because it does not write changes to the database until Flushing occurs.

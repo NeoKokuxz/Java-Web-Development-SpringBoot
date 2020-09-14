@@ -19,6 +19,9 @@
 #### Distributed Transaction DataSource
 > Uses transaction manager to manage distributed requests oftern pools connections as well
 
+## Database URL structure
+- jdbc:mysql://localhost:3306/exampledb
+- subprotocol // serverName[:port] / databaseInstanceName: properties
 
 
 

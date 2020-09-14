@@ -47,13 +47,20 @@ public class DeliveryRepository {
     // One possible way to solve this - query a list of Plants with deliveryId matching
     // the one provided and sum their prices.
     public RecipientAndPrice getBill(Long deliveryId){
+        //Create Critieria by using CriteriaBuilder from entityManager
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        //Create Query using RecipientAndPrice to project limited data to presentation layer from the projection class
+        //Save it to CriteriaQuery
         CriteriaQuery<RecipientAndPrice> query = cb.createQuery(RecipientAndPrice.class);
+        //Set root to the Plant.class to hold data
         Root<Plant> root = query.from(Plant.class);
+        //Below code is simply:
+        // select name, price from Plant where Plant.get delivery id = id
         query.select(cb.construct(
                 RecipientAndPrice.class, root.get("delivery").get("name"),
                 cb.sum(root.get("price")))
         ).where(cb.equal(root.get("delivery").get("id"), deliveryId));
+        //Return the single result from the query above
         return entityManager.createQuery(query).getSingleResult();
     }
 }

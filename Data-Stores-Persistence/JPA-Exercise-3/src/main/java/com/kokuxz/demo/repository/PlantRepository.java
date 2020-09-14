@@ -22,5 +22,6 @@ public interface PlantRepository extends JpaRepository<Plant, Long> {
     Boolean deliveryCompletedBoolean(Long plantId);
 
     //we can do this entirely with the method name
+    //@Query("select p.name from Plant p where p.price <= :price")
     List<Plant> findByPriceLessThan(BigDecimal price);
 }

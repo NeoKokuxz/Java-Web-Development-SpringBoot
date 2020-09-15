@@ -45,6 +45,49 @@ CREATE SCHEMA `plant` ; -- Create the plant database
 CREATE USER 'sa'@'localhost' IDENTIFIED BY 'sa1234'; -- Create the user if you haven’t yet
 GRANT ALL ON plant.* TO 'sa'@'localhost'; -- Gives all privileges to the new user on plant
 ```
+## Programmatic configuration for MySQL in Spring with @Configuration
+- @Configuration annotation at class level
+- @Bean for fetch dataSource object from database
+- use DataSourceBuilder to create a DataSource
+- Set properties after create the DataSource
+- 
 
+```java
+@Configuration //Set configuration annotation here
+public class DatasourceConfig {
 
+   @Bean //Set Bean 
+   public DataSource getDatasource() {
+       DataSourceBuilder dsb = DataSourceBuilder.create(); //Create DataSource using DataSourceBuilder
+       dsb.username("sa2"); //username
+       dsb.password(securePasswordService()); //password
+       dsb.url("jdbc:mysql://localhost:3306/exercise1"); //JDBC URL here
+       return dsb.build(); //Return DataSource
+   }
 
+   private String securePasswordService() {
+       return "sa1234";
+   }
+}
+```
+
+### @ConfigurationProperties 
+> You can also combine properties and programmatic configuration by using the @ConfigurationProperties annotation. Spring will attempt to inject any properties found beginning with the provided prefix into the returned @Bean.
+- This will overwrites any property set by programmatic code by using the values preset in property file
+```java
+@Configuration
+public class DatasourceConfig {
+
+   @Bean
+   @ConfigurationProperties("foo.datasource") // <- Here, when everything finish in bean, then the ConfigurationProperties overwrites whatever the value stored in property
+   public DataSource getDatasource() {
+       DataSourceBuilder dsb = DataSourceBuilder.create();
+       dsb.password(securePasswordService());
+       return dsb.build();
+   }
+
+   private String securePasswordService() {
+       return "sa1234";
+   }
+}
+```

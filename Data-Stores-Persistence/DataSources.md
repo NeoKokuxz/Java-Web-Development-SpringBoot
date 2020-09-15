@@ -23,5 +23,28 @@
 - jdbc:mysql://localhost:3306/exampledb
 - subprotocol // serverName[:port] / databaseInstanceName: properties
 
+## Configure Spring with MySQL
+- Configure application.properties
+```java
+spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/plant
+spring.datasource.username=sa // can be any username
+spring.datasource.password=sa1234 // can be any password
+```
+- Configure dependency in pom file
+```xml
+<dependency>
+  <groupId>mysql</groupId>
+  <artifactId>mysql-connector-java</artifactId>
+  <scope>runtime</scope>
+</dependency>
+```
+- SQL execution
+```sql
+CREATE SCHEMA `plant` ; -- Create the plant database
+
+CREATE USER 'sa'@'localhost' IDENTIFIED BY 'sa1234'; -- Create the user if you haven’t yet
+GRANT ALL ON plant.* TO 'sa'@'localhost'; -- Gives all privileges to the new user on plant
+```
+
 
 

@@ -91,3 +91,107 @@ public class DatasourceConfig {
    }
 }
 ```
+
+### DataSourceProperties
+> Different DataSource providers sometimes have different names for their properties. You can use a DataSourceProperties object to manage converting between the standard spring.datasource properties and your desired DataSource type by creating a @Bean that returns a DataSourceProperties object you populate from your properties file.
+
+> We will annotate both the DataSourceProperties and DataSource beans with @Primary so that spring knows which beans to use by default of that type.
+
+```java
+@Bean
+@Primary
+@ConfigurationProperties("spring.datasource")
+public DataSourceProperties getDataSourceProperties(){
+   return new DataSourceProperties();
+}
+
+@Bean
+@Primary
+@ConfigurationProperties(prefix = "spring.datasource.configuration")
+public DataSource getDatasource(DataSourceProperties properties) {
+   return properties.initializeDataSourceBuilder().type(HikariDataSource.class).build();
+}
+```
+
+#### Mutiple DataSource
+> If your data is stored in multiple locations, you can access it by creating multiple DataSource @Beans. You will have to provide beans for an EntityManagerFactory and a TransactionManager as well. To support Spring Data repositories, we also use the @EnableJpaRepositories annotation to reference the specific classes.
+
+> Here are the definitions for two different config classes. The first one defines everything we need to load spring.datasource properties into one DataSource for storing our Humanoid Entities. The next one uses the properties from spring.datasource2 to access our Outfit Entities.
+
+- DataSourceConfig.java
+```java
+//DataSourceConfig.java
+@Configuration
+@EnableJpaRepositories(basePackageClasses = Humanoid.class, entityManagerFactoryRef = "humanoidFactory")
+public class DatasourceConfig {
+
+   @Bean
+   @Primary
+   @ConfigurationProperties("spring.datasource")
+   public DataSourceProperties getDataSourceProperties(){
+       return new DataSourceProperties();
+   }
+
+   @Bean
+   @Primary
+   @ConfigurationProperties(prefix = "spring.datasource.configuration")
+   public DataSource getDatasource(DataSourceProperties properties) {
+       return properties.initializeDataSourceBuilder().type(HikariDataSource.class).build();
+   }
+
+   @Bean(name = "humanoidFactory")
+   @Primary
+   public LocalContainerEntityManagerFactoryBean humanoidEntityManagerFactory(
+           EntityManagerFactoryBuilder entityManagerFactoryBuilder) {
+       return entityManagerFactoryBuilder
+               .dataSource(getDatasource(getDataSourceProperties()))
+               .packages(Humanoid.class)
+               .persistenceUnit("humanoid")
+               .build();
+   }
+
+   @Bean(name = "humanoidTx")
+   @Primary
+   public PlatformTransactionManager humanoidTransactionManager(@Qualifier("humanoidFactory")EntityManagerFactory entityManagerFactory){
+       return new JpaTransactionManager(entityManagerFactory);
+   }
+
+}
+```
+- DataSourceConfig2.java
+```java
+
+@Configuration
+@EnableJpaRepositories(basePackageClasses = {Outfit.class, OutfitRepository.class}, entityManagerFactoryRef = "outfitFactory")
+public class Datasource2Config {
+
+   @Bean
+   @ConfigurationProperties("spring.datasource2")
+   public DataSourceProperties getDataSource2Properties(){
+       return new DataSourceProperties();
+   }
+
+   @Bean
+   @ConfigurationProperties(prefix = "spring.datasource2.configuration")
+   public DataSource getDatasource2(DataSourceProperties properties) {
+       return properties.initializeDataSourceBuilder().type(HikariDataSource.class).build();
+   }
+
+   @Bean(name = "outfitFactory")
+   public LocalContainerEntityManagerFactoryBean outfitEntityManagerFactory(
+           EntityManagerFactoryBuilder entityManagerFactoryBuilder) {
+       return entityManagerFactoryBuilder
+               .dataSource(getDatasource2(getDataSource2Properties()))
+               .packages(Outfit.class)
+               .persistenceUnit("outfit")
+               .build();
+   }
+
+   @Bean(name = "outfitTx")
+   public PlatformTransactionManager outfitTransactionManager(@Qualifier("outfitFactory")EntityManagerFactory entityManagerFactory){
+       return new JpaTransactionManager(entityManagerFactory);
+   }
+
+}
+```
+

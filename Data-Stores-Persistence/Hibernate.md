@@ -14,6 +14,12 @@
 - Validate: Throw an exception if tables or columns are missing.
 - None: Do not initialize tables.
 
+```java
+//Example:
+spring.jpa.hibernate.ddl-auto=create / create-drop / update / validate / none
+//For in memory database like H2, it's default to create and for external like MySQL it's none
+```
+
 ### show-sql
 - Spring offers a useful command to print all generated sql commands to the console:
 ``` 

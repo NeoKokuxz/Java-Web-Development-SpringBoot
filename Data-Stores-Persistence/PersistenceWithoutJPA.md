@@ -143,3 +143,15 @@ public PersonWithOneOutfit addOutfitForPerson(Long personId, OutfitData outfitDa
            });
 }
 ```
+
+### OneToMany with ResultSetExtractor
+> We will now look at a query to retrieve this object:
+```java
+public class PersonWithAllOutfits {
+   private String name;
+   private int age;
+   private String favoriteComposer;
+   private List<OutfitData> outfits;
+}
+If you want to construct an object with more complex relat
+```

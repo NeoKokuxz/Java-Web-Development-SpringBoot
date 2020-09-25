@@ -102,3 +102,44 @@ public Long addPersonInsert(PersonData personData) {
   BeanPropertySqlParameterSource(personData)).longValue();
 }
 ```
+
+### OneToOne with RowMapper
+- We will write a query to return this object:
+```java
+public class PersonWithOneOutfit {
+   private String name;
+   private int age;
+   private String favoriteComposer;
+   private OutfitData outfit;
+  /* getters and setters */
+}
+```
+> We can populate an object representing a OneToOne relationship between tables with a single query by combining multiple RowMapper's in the same statement. The query returns all the values necessary to build both objects, and then we use an anonymous RowMapper to make the results into two different objects.
+
+```java
+private static final String SELECT_PERSON_WITH_ONE_OUTFIT =
+       "SELECT * FROM person p " +
+               "JOIN outfit o " +
+               "ON p.id = o.person_id " +
+               "WHERE p.id = :personId AND o.id = :outfitId";
+
+
+private static final BeanPropertyRowMapper<PersonWithOneOutfit> personWithOneOutfitRowMapper = new BeanPropertyRowMapper<>(PersonWithOneOutfit.class);
+private static final BeanPropertyRowMapper<OutfitData> outfitRowMapper = new BeanPropertyRowMapper<>(OutfitData.class);
+
+public PersonWithOneOutfit addOutfitForPerson(Long personId, OutfitData outfitData) {
+   outfitData.setPersonId(personId);
+   Long outfitId = addOutfit(personId, outfitData);
+
+   return jdbcTemplate.queryForObject(SELECT_PERSON_WITH_ONE_OUTFIT,
+           new MapSqlParameterSource()
+                   .addValue("personId", personId)
+                   .addValue("outfitId", outfitId),
+           //anonymous row mapper lambda
+           (resultSet, i) -> {
+               PersonWithOneOutfit person = personWithOneOutfitRowMapper.mapRow(resultSet, i);
+               person.setOutfit(outfitRowMapper.mapRow(resultSet, i));
+               return person;
+           });
+}
+```

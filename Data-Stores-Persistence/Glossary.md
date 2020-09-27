@@ -146,3 +146,45 @@
 
 ## Level 1 Cache
 - An intermediate layer into which changes can be written and objects retrieved quickly. The Persistence Context functions as a Level 1 Cache, because it does not write changes to the database until Flushing occurs.
+
+## Lesson Outline
+- Initialization with SQL
+- Data Object vs. Entities
+- Data Access Objects (DAOs)
+- JdbcTemplate
+- Performance
+
+## Definitions
+
+### SQL Initialization Scripts
+> Spring attempts to execute two scripts by default when the application starts:
+
+- schema.sql - Create or update the schema.
+- data.sql - Initialize or modify the data in your tables.
+
+### Platform-specific initialization
+> You may provide additional initialization scripts using the naming pattern:
+
+- schema-${platform}.sql //schema-test.sql
+- data-${platform}.sql //data-test.sql
+
+### Data Object
+> A Java class that maps to a specific database.
+
+### Data Access Object
+> A design pattern for the data layer that presents a programmatic interface to one or more related tables. Whereas a Repository presents a collection of Entities that you modify to update the database, a DAO will often provide methods that expose various actions, along with standard CRUD operations.
+
+### JdbcTemplate
+> Provides connections, executes queries, and manages transactions.
+
+### NamedParameterJdbcTemplate
+> A JdbcTemplate that allows you to use named parameters in your query strings.
+
+### RowMapper
+> Class that takes a single row for a query result set and returns an object representing that row.
+
+### ResultSetExtractor
+> Class that takes an entire result set and returns one object representing all the results.
+
+### spring.jpa.properties.hibernate.generate_statistics
+> Property that enables a feature causing Hibernate to print all transaction statistics when a transaction ends.

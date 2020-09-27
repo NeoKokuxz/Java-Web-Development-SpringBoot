@@ -1,0 +1,1 @@
+insert ignore into candy (id, name, price) values (1, 'Test', 5.99);

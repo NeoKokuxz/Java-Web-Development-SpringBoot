@@ -155,3 +155,66 @@ public class PersonWithAllOutfits {
 }
 If you want to construct an object with more complex relat
 ```
+
+## JDBCTemplate Summary
+- Return a single row and map it to an object
+- Update or insert row
+- Populate complex objects with RowMapper
+- Turn result sets into objects that contain multiple other objects
+> If you want to construct an object with more complex relationships, you have two main choices:
+1. Query twice and assemble the objects
+2. Query once and loop through every row to build objects from the result set
+
+### jdbcTemplate.query
+> To retrieve a list of items representing the second part of your OneToMany association, you can use jdbcTemplate.query. Here is a query returning all the outfits for a specific person. By using this in conjunction with a query to retrieve a single PersonData, you can then populate PersonWithAllOutfits.
+
+```java
+private static final String SELECT_OUTFIT_BY_PERSON_ID = "SELECT * FROM outfit o WHERE o.person_id = :personId";
+
+public List<OutfitData> getOutfitsByPerson(Long personId){
+   return jdbcTemplate.query(SELECT_OUTFIT_BY_PERSON_ID,
+           new MapSqlParameterSource().addValue("personId", personId),
+           new BeanPropertyRowMapper<>(OutfitData.class));
+}
+```
+### ResultSetExtractor
+> If we wrote a single query that retrieved all the data for both PersonData and our List<OutfitData>, we can use a ResultSetExtractor to build the objects for us from the data.
+
+```java
+private static final String SELECT_PERSON_WITH_ALL_OUTFITS =
+       "SELECT * FROM person p " +
+       "JOIN outfit o " +
+       "ON p.id = o.person_id " +
+       "WHERE p.id = :personId";
+
+private static final BeanPropertyRowMapper<PersonWithAllOutfits> personWithAllOutfitsRowMapper = new BeanPropertyRowMapper<>(PersonWithAllOutfits.class);
+public PersonWithAllOutfits addOutFitForPersonReturnAllFancy(Long personId, OutfitData outfitData) {
+   //add the outfit to db
+   outfitData.setPersonId(personId);
+   addOutfit(personId, outfitData);
+
+   //iterate over the result set to construct the outfit list
+   return jdbcTemplate.query(
+           SELECT_PERSON_WITH_ALL_OUTFITS,
+           new MapSqlParameterSource().addValue("personId", personId),
+           //anonymous ResultSetExtractor lambda
+           resultSet -> {
+               PersonWithAllOutfits person = null;
+               List<OutfitData> outfits = new ArrayList<>();
+               int row = 0;
+               while(resultSet.next()) {
+                   if(person == null){
+                       person = personWithAllOutfitsRowMapper.mapRow(resultSet, row);
+                   }
+                   outfits.add(outfitRowMapper.mapRow(resultSet, row++));
+               }
+               if(person != null) {
+                   person.setOutfits(outfits);
+               }
+               return person;
+           });
+}
+```
+## @Transactional
+> Many operations in DAOs involve combining multiple queries into a single request, so transaction management is just as important as before! Fortunately, JdbcTemplate provides a Spring-managed connection, so we can simply use @Transactional to set our transaction boundaries by method just like we did when using Hibernate.
+

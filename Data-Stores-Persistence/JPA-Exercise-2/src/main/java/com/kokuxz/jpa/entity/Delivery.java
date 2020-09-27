@@ -39,6 +39,12 @@ public class Delivery {
         this.plantList = plantList;
     }
 
+    public Delivery(String s, String test_address, LocalDateTime now) {
+        this.name = s;
+        this.address = test_address;
+        this.deliveryTime = now;
+    }
+
     public Long getId() {
         return id;
     }

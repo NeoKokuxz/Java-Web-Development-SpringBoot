@@ -31,6 +31,11 @@ public class Plant {
 
     }
 
+    public Plant(String name, double price){
+        this.name = name;
+        this.price = BigDecimal.valueOf(price);
+    }
+
     public Plant(Long id, String name, BigDecimal price, Delivery delivery) {
         this.id = id;
         this.name = name;

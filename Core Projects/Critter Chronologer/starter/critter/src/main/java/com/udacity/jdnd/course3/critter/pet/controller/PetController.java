@@ -31,4 +31,5 @@ public class PetController {
     public List<PetDTO> getPetsByOwner(@PathVariable long ownerId) {
         throw new UnsupportedOperationException();
     }
+
 }

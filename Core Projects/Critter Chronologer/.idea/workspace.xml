@@ -5,29 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0f2449f-23ae-4bac-9e57-f6a10975271a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/src/main/java/com/udacity/jdnd/course3/critter/pet/controller/PetController.java" beforeDir="false" afterPath="$PROJECT_DIR$/starter/critter/src/main/java/com/udacity/jdnd/course3/critter/pet/controller/PetController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/src/main/java/com/udacity/jdnd/course3/critter/pet/entity/Pet.java" beforeDir="false" afterPath="$PROJECT_DIR$/starter/critter/src/main/java/com/udacity/jdnd/course3/critter/pet/entity/Pet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/src/main/java/com/udacity/jdnd/course3/critter/pet/mapper/PetMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/src/main/java/com/udacity/jdnd/course3/critter/schedule/ScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/starter/critter/src/main/java/com/udacity/jdnd/course3/critter/schedule/controller/ScheduleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/src/main/java/com/udacity/jdnd/course3/critter/schedule/ScheduleDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/starter/critter/src/main/java/com/udacity/jdnd/course3/critter/schedule/dto/ScheduleDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/src/main/java/com/udacity/jdnd/course3/critter/schedule/entity/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/starter/critter/src/main/java/com/udacity/jdnd/course3/critter/schedule/entity/Schedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/src/main/java/com/udacity/jdnd/course3/critter/user/customer/entity/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/starter/critter/src/main/java/com/udacity/jdnd/course3/critter/user/customer/entity/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/src/main/java/com/udacity/jdnd/course3/critter/user/employee/entity/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/starter/critter/src/main/java/com/udacity/jdnd/course3/critter/user/employee/entity/Employee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/starter/critter/src/main/resources/schema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/src/test/java/com/udacity/jdnd/course3/critter/CritterFunctionalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/starter/critter/src/test/java/com/udacity/jdnd/course3/critter/CritterFunctionalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/target/classes/com/udacity/jdnd/course3/critter/pet/PetController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/target/classes/com/udacity/jdnd/course3/critter/pet/PetDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/target/classes/com/udacity/jdnd/course3/critter/pet/PetType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/target/classes/com/udacity/jdnd/course3/critter/schedule/ScheduleDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/starter/critter/target/classes/com/udacity/jdnd/course3/critter/schedule/ScheduleDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/target/classes/com/udacity/jdnd/course3/critter/user/CustomerDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/target/classes/com/udacity/jdnd/course3/critter/user/EmployeeDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/target/classes/com/udacity/jdnd/course3/critter/user/EmployeeRequestDTO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/target/classes/com/udacity/jdnd/course3/critter/user/EmployeeSkill.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/target/classes/com/udacity/jdnd/course3/critter/user/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/starter/critter/target/classes/com/udacity/jdnd/course3/critter/user/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/target/classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/starter/critter/target/classes/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter/critter/target/classes/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/starter/critter/target/classes/schema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter/critter/src/main/java/com/udacity/jdnd/course3/critter/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/starter/critter/src/main/java/com/udacity/jdnd/course3/critter/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter/critter/src/main/resources/data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/starter/critter/src/main/resources/schema.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,17 +57,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CritterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="critter" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.udacity.jdnd.course3.critter.CritterApplication" />
@@ -105,7 +75,8 @@
       <updated>1601246580917</updated>
       <workItem from="1601246582000" duration="3634000" />
       <workItem from="1601310112778" duration="46325000" />
-      <workItem from="1601847267466" duration="1459000" />
+      <workItem from="1601847267466" duration="5396000" />
+      <workItem from="1602196577902" duration="5000" />
     </task>
     <servers />
   </component>

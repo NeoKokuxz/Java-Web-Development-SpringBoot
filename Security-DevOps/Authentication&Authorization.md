@@ -93,10 +93,10 @@ private static String get_SecurePassword(String passwordToHash, byte[] salt){
      e.printStackTrace();
     }
     return generatedPassword;
-   } 
+} 
 
   // Method to generate a Salt
-  private static byte[] createSalt() {
+private static byte[] createSalt() {
     SecureRandom random = new SecureRandom();
     byte[] salt = new byte[16];
     random.nextBytes(salt);

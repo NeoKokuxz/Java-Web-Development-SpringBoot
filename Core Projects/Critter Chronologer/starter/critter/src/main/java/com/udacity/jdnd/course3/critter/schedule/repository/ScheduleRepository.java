@@ -10,11 +10,6 @@ import java.util.List;
 @Repository
 public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
 
-//    @Query("select s from Schedule s where employee_id = :employeeId")
-//    List<Schedule> FindScheduleByEmployeeId (Long employeeId);
-//
-//    @Query("select s from Schedule s where customer_id = :customerId")
-//    List<Schedule> FindScheduleByCustomerId (Long employeeId);
 
     List<Schedule> getSchedulesByEmployee_Id(Long id);
 

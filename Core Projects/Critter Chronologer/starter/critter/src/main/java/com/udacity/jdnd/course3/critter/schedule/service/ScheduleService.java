@@ -34,11 +34,15 @@ public class ScheduleService {
         return schedule;
     }
 
-    public List<Schedule> getPetScheduleByEmployeeId(Long id){
+    public List<Schedule> getPetSchedulesByPetId(Long id){
+        return scheduleRepository.getSchedulesByPets_Id(id);
+    }
+
+    public List<Schedule> getPetSchedulesByEmployeeId(Long id){
         return scheduleRepository.getSchedulesByEmployee_Id(id);
     }
 
-    public List<Schedule> getPetScheduleByCustomerId(Long id){
+    public List<Schedule> getPetSchedulesByCustomerId(Long id){
         return scheduleRepository.getSchedulesByCustomer_Id(id);
     }
 
